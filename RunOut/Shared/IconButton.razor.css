@@ -1,0 +1,43 @@
+﻿
+.frame_41 {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 18px;
+    width: 279px;
+    height: 40px;
+    /* Back */
+
+    background: rgba(28, 28, 30, 0.59);
+    border-radius: 8px;
+}
+
+.icon_container {
+    width: 23px;
+    height: 24px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid rgba(84.00000259280205, 84.00000259280205, 88.00000235438347, 0.65);
+    /* Center child horizontally*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.september_2022 {
+    color: rgba(244.0000006556511, 245.00000059604645, 247.00000047683716, 1);
+    width: 105px;
+    height: 20px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+
