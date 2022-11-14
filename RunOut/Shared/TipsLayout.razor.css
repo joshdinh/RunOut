@@ -1,0 +1,48 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+   
+}
+
+.centerPage{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+.tipsPage {
+    background-color: #262729;
+    width:412px;
+    height:915px;
+
+}
+
+.topNav {
+    background-color: #1C1C1E;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight:600;
+    height:50px;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+#heading{
+    padding-top:15px;
+
+
+}
+
+#back {
+    color: #34C759;
+    font-size:20px;
+    padding-top:12px;
+    margin-right:auto;
+    
+}
+
+#hidden{
+    visibility:hidden;
+    margin-left:auto;
+}
