@@ -1,16 +1,17 @@
 ﻿body {
-    font-family: 'Roboto', sans-serif;
+
    
 }
 
-.centerPage{
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
+.centerPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .tipsPage {
-    background-color: #262729;
+ 
     width:412px;
     height:915px;
 
@@ -22,7 +23,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-weight:600;
+    font-weight:500;
     height:50px;
     padding-left:15px;
     padding-right:15px;

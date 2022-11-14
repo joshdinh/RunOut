@@ -4,8 +4,11 @@
     justify-content: center;
 }
 
-main {
-    
+main{
+    background-image: url("/Images/mainImg.jpg");
+    background-size:412px 915px;
+    width:412px;
+    height:915px;
 }
 /*
 .sidebar {
