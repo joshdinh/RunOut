@@ -1,14 +1,20 @@
-.page {
+
+
+body {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-main{
+.page {
+    width: 412px;
+    height: 915px;
+}
+
+main {
     background-image: url("/Images/mainImg.jpg");
-    background-size:412px 915px;
-    width:412px;
-    height:915px;
+    background-size: cover;
+    background-attachment: fixed;
 }
 /*
 .sidebar {
