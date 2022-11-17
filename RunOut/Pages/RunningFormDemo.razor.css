@@ -36,7 +36,8 @@
     background-color: rgb(28, 28, 30,0.59);
     margin: 40px 30px 100px 30px;
     border-radius: 16px;
-    text-align: left;
+    height:750px;
+
 }
 
 a {
@@ -80,3 +81,43 @@ iframe {
     font-size:15px;
     font-weight:600;
 }
+
+.sideScrollButtons{
+    margin-top:300px;
+}
+
+    .sideScrollButtons button {
+        width: 23px;
+        height: 24px;
+        border-radius: 4px;
+        border-color: rgb(84, 84, 88,0.65);
+        border-width: 0.5px;
+        border-style: solid;
+        background-color: transparent;
+        font-size: 30px;
+        color: white;
+    }
+
+    .sideScrollButtons{
+        font-size: 30px;
+        color: white;
+        
+    }
+
+    .next{
+     margin-left:auto;
+    }
+
+    .next p{
+        margin-left:2px;
+        margin-top:-14px;
+    }
+
+    .back{
+        margin-right:235px;
+    }
+
+    .back p{
+        margin-left:-2px;
+        margin-top:-14px;
+    }

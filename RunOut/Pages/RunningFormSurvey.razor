@@ -1,0 +1,49 @@
+﻿@page "/runningformsurvey"
+@layout TipsLayout
+
+<div class="content">
+    <div class="tipButtons">
+        <a href="/runningform">
+            <button disabled id="running">
+                Running Form
+            </button>
+        </a>
+
+        <a href="/breathing">
+            <button>
+                Breathing
+            </button>
+        </a>
+
+        <a href="/stretching">
+            <button id="stretching">
+                Stretch
+            </button>
+        </a>
+    </div>
+    <div class="actualTips">
+        <div class="uploadVideo">
+            <h3>FORM ANALYSIS</h3>
+            <p>Upload a video of you running and answer the questions below to analyze your form</p>
+            <button class="upload">Upload Video</button>
+            
+
+        </div>
+        <div class="questions">
+            <h3>FORM QUESTIONNAIRE</h3>
+            <p>What part of your foot comes into contact with the ground?</p>
+            <div class="answers">
+                <button>A</button>
+                <button>B</button>
+                <button>C</button>
+                <button>D</button>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+@code {
+
+}

@@ -1,0 +1,94 @@
+﻿
+.content {
+    text-align: center;
+    width: 412px;
+    height: 915px;
+}
+
+.tipButtons {
+    display: flex;
+    justify-content: center;
+}
+
+    .tipButtons button {
+        border: none;
+        background-color: rgb(84, 84, 88,0.65);
+        color: white;
+        font-size: 15px;
+        font-weight: 400;
+        font-family: 'Roboto',sans-serif;
+        padding: 10px 25px;
+    }
+
+#running {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: #636366;
+}
+
+#stretching {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.actualTips {
+    background-color: rgb(28, 28, 30,0.59);
+    margin: 40px 30px 100px 30px;
+    border-radius: 16px;
+    height: 750px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.uploadVideo{
+    padding-top:20px;
+}
+
+.upload {
+    color: white;
+    background-color: #34C759;
+    border-radius: 8px;
+    border: none;
+    width: 115px;
+    height: 35px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+h3 {
+    color: #34C759;
+    font-weight: 700;
+    text-align:center;
+}
+
+p{
+    color:white;
+    font-family:"Roboto",sans-serif;
+    padding-left:25px;
+    padding-right:25px;
+}
+
+.questions{
+    margin-top:20px;
+}
+
+.answers{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+    .answers button {
+        color: white;
+        background-color: #3A3A3C;
+        border-radius: 8px;
+        border: none;
+        width: 300px;
+        height: 35px;
+        font-size: 15px;
+        font-weight: 600;
+        margin:10px 25px;
+    }

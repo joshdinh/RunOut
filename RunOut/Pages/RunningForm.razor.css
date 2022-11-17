@@ -61,12 +61,12 @@ a {
 #articleHeading {
     color: #34C759;
     font-weight: 700;
-    margin: 0 20px 0 20px;
+    margin: 0 25px 0 25px;
 }
 
 .content p{
     color: white;
-    margin: 10px 20px;
+    margin: 10px 25px;
     font-weight: 400;
     font-family: 'Roboto',sans-serif;
 }
@@ -80,13 +80,13 @@ a {
     border-style:solid;
     
     background-color: transparent;
-    margin-left: 305px;
+    margin-left: 300px;
     margin-bottom:10px;
 }
 
     .next p {
         font-size: 30px;
         margin-left:2px;
-        margin-top:-13px;
+        margin-top:-14px;
         color: white;
     }
