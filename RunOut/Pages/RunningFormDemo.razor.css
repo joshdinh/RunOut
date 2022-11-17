@@ -19,8 +19,10 @@
         font-weight: 400;
         font-family: 'Roboto',sans-serif;
         padding: 10px 25px;
+
     }
 
+   
 #running {
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
@@ -84,6 +86,9 @@ iframe {
 
 .sideScrollButtons{
     margin-top:300px;
+    font-size: 30px;
+    color: white;
+        
 }
 
     .sideScrollButtons button {
@@ -96,12 +101,6 @@ iframe {
         background-color: transparent;
         font-size: 30px;
         color: white;
-    }
-
-    .sideScrollButtons{
-        font-size: 30px;
-        color: white;
-        
     }
 
     .next{

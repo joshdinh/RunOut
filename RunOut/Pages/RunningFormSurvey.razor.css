@@ -18,7 +18,10 @@
         font-weight: 400;
         font-family: 'Roboto',sans-serif;
         padding: 10px 25px;
+        
     }
+
+
 
 #running {
     border-top-left-radius: 7px;
@@ -31,11 +34,13 @@
     border-bottom-right-radius: 7px;
 }
 
+
 .actualTips {
     background-color: rgb(28, 28, 30,0.59);
     margin: 40px 30px 100px 30px;
     border-radius: 16px;
     height: 750px;
+    padding-top:40px;
 }
 
 a {
@@ -43,8 +48,19 @@ a {
     color: white;
 }
 
-.uploadVideo{
-    padding-top:20px;
+
+.uploadVideo {
+    padding-top:40px;
+    background-color: #3A3A3C;
+    border-radius: 16px;
+    width:290px;
+    height:250px;
+    text-align:center;
+    margin-left:30px;
+    margin-right:30px;
+    
+    
+    
 }
 
 .upload {
@@ -56,12 +72,12 @@ a {
     height: 35px;
     font-size: 15px;
     font-weight: 600;
+    margin-top:10px;
 }
 
 h3 {
     color: #34C759;
     font-weight: 700;
-    text-align:center;
 }
 
 p{
@@ -72,7 +88,7 @@ p{
 }
 
 .questions{
-    margin-top:20px;
+    margin-top:50px;
 }
 
 .answers{
@@ -91,4 +107,31 @@ p{
         font-size: 15px;
         font-weight: 600;
         margin:10px 25px;
+    }
+
+
+.sideScrollButtons {
+    margin-top: 20px;
+    font-size: 30px;
+    color: white;
+}
+
+    .sideScrollButtons button {
+        width: 23px;
+        height: 24px;
+        border-radius: 4px;
+        border-color: rgb(84, 84, 88,0.65);
+        border-width: 0.5px;
+        border-style: solid;
+        background-color: transparent;
+        font-size: 30px;
+        color: white;
+    }
+
+.back {
+    margin-right: 270px;
+}
+    .back p {
+        margin-left: -26px;
+        margin-top: -14px;
     }
