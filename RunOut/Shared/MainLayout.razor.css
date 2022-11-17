@@ -8,13 +8,16 @@ body {
 
 .page {
     width: 412px;
-    height: 915px;
+    height: 100vh;
+
 }
 
 main {
     background-image: url("/Images/mainImg.jpg");
     background-size: cover;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    
 }
 /*
 .sidebar {

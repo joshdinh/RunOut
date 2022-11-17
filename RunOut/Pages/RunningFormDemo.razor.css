@@ -2,8 +2,7 @@
 
 .content {
     text-align: center;
-    width: 412px;
-    height: 915px;
+    padding-bottom: 20px;
 }
 
 .tipButtons {
@@ -36,7 +35,7 @@
 
 .actualTips {
     background-color: rgb(28, 28, 30,0.59);
-    margin: 40px 30px 100px 30px;
+    margin: 40px 30px 10px 30px;
     border-radius: 16px;
     height:750px;
 
