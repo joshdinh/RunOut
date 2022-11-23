@@ -1,0 +1,74 @@
+﻿@page "/calendar"
+@layout MainLayout
+
+<div class="content">
+
+
+	<img src="Images/MonthSelector_Calendar.png" class="monthSelector" />
+	<h2 role="status"  class="dateTitle">  @month[monthValue]</h2>
+	<button class="increaseMonth" @onclick="incrementMonth"></button>
+	<button class="decreaseMonth" @onclick="decrementMonth"></button>
+
+
+	<img src="Images/CardContainer_Calendar.png" class="cardContainer" />
+	<h2 role="status" class="weekTitle">Week @weekValue </h2>
+	<button class="increaseWeek" @onclick="incrementWeek"></button>
+	<button class="decreaseWeek" @onclick="decrementWeek"></button>
+ 
+
+	<img src="Images/BottonNav_Calendar.png" class="bottomNav" />
+	<a href="/runningform" class="homepage"></a>
+	<a href="/runningform" class="profile"></a>
+	<a href="/runningform" class="feed"></a>
+
+
+</div>
+
+@code {
+	private int weekValue = 0;
+	private int monthValue = 0;
+	private string[] month = { "January","Feburary","March","April","May","June","July","August", "September", "October", "November", "December" };
+
+
+
+	private void incrementMonth()
+	{
+		monthValue++;
+		if(monthValue >month.Length-1)
+		{
+			monthValue = 0;
+
+		}
+	}
+
+	private void decrementMonth()
+	{
+		monthValue--;
+		if (monthValue < 0)
+		{
+			monthValue = month.Length-1;
+		}
+	}
+
+	private void incrementWeek()
+	{
+		weekValue++;
+		if (weekValue == 3)
+		{
+			weekValue = 0;
+			incrementMonth();
+		}
+	}
+
+	private void decrementWeek()
+	{
+		weekValue--;
+		if (weekValue == -1)
+		{
+			weekValue = 3;
+			decrementMonth();
+		}
+	}
+
+ 
+}
