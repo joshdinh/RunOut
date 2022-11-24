@@ -7,8 +7,9 @@ body {
 }
 
 .page {
-    width: 412px;
-    height: 100vh;
+    width: 390px;
+    height:844x;
+    box-sizing:border-box;
 
 }
 
@@ -17,7 +18,7 @@ main {
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    
+
 }
 /*
 .sidebar {
