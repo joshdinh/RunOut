@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\Login.razor.css" />
+    <None Remove="Pages\Signup.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Login.razor.css" />
+    <Content Include="Pages\Signup.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Images\runform.jpg" />
   </ItemGroup>
 

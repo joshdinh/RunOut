@@ -1,0 +1,17 @@
+﻿.container {
+    display: flex;
+    margin: 4px 2px;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 20px;
+    height: 100vh;
+    width: 399px;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: white;
+    margin-bottom: 30px
+}
+

@@ -30,6 +30,7 @@ h2 {
     font-weight: 700;
     height:48px;
     width: 132px;
+    margin-bottom: 16px;
  
 }
 .button2 {
@@ -43,6 +44,7 @@ h2 {
     font-weight: 700;
     height: 48px;
     width: 132px;
+    margin-bottom: 16px;
 }
 div {
     display: flex;
@@ -50,4 +52,6 @@ div {
     justify-content: flex-end;
     text-align: center;
     padding-bottom: 20px;
+    
+   
 }
