@@ -62,80 +62,55 @@
     font-family: "Manrope", sans-serif;
 }
 
-.nextNotif, .stopwatch {
+.stopwatch {
     background-color: #2C2C2E;
     border-radius: 16px;
     text-align: center;
     width: 237px;
-    margin-left:auto;
-    margin-right:auto;
+    height: 130px;
+    margin: 140px auto;
 }
-    .nextNotif {
-        margin-top: 25px;   
-        height: 103px;
-    }
-
-    .nextNotif p {
-        color: #969BAB;
-        font-weight:700;
-        margin-bottom:8px;
-    }
-
-    .nextNotif h1{
-        color:white;
-        font-weight:800;
-        font-size:50px;
-    }
-
-    .stopwatch{
-        height:130px;
-        margin-top:130px;
-    }
 
     .stopwatch h1 {
         color: #FF9F0A;
-        font-weight:800;
+        font-weight: 800;
         font-size: 60px;
-        padding-top:30px;
+        padding-top: 30px;
     }
 
 .stats {
     border-radius: 16px;
     background-color: #1C1C1E;
-    margin-top:20px;
-
 }
 
 #statsHeading {
     padding: 15px 25px 0 25px;
     color: #969BAB;
-    font-family: "Roboto",sans-serif;   
-    font-weight:500;
+    font-family: "Roboto",sans-serif;
+    font-weight: 500;
 }
 
 #distance, #pace {
     background-color: #2C2C2E;
-    width:366px;
-    height:96px;
-    border-radius:16px;
-    margin-left:auto;
-    margin-right:auto;
-
-    display:flex;
-    flex-direction:row;
-
-
+    width: 366px;
+    height: 96px;
+    border-radius: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
 }
 
-#distance{
-    margin-bottom:10px;
+#distance {
+    margin-bottom: 10px;
 }
-#distance h2, #pace h2{
-    color:white;
-    font-weight:600;
-    font-size:18px;
-    padding:25px 0px 0px 13px;
-}
+
+    #distance h2, #pace h2 {
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 25px 0px 0px 13px;
+    }
 
 .target {
     background-color: #3A3A3C;
@@ -147,20 +122,19 @@
     font-weight: 500;
 }
 
-.km{
-   color:white;
-   line-height:100px;
-   font-weight:500;
-   margin-left:5px;
-   
+.km {
+    color: white;
+    line-height: 100px;
+    font-weight: 500;
+    margin-left: 5px;
 }
 
 .number {
     color: #969BAB;
     font-size: 50px;
     font-weight: 800;
-    padding-top:10px;
-    padding-left:15px;
+    padding-top: 10px;
+    padding-left: 15px;
 }
 
 
@@ -169,17 +143,18 @@
     color: white;
     border-radius: 8px;
     width: 358px;
-    height:45px;
+    height: 45px;
     font-weight: 700;
     font-size: 15px;
     margin: 10px 15px 0 15px;
-   
 }
-#overview {
+
+#pause {
     background-color: #3A3A3C;
-    margin-top:15px;
+    margin-top: 15px;
 }
-#start {
+
+#finish {
     background-color: #34C759;
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }

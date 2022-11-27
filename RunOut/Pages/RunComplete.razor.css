@@ -23,13 +23,14 @@ h1 {
     padding:20px;
 }
 
-#overview {
+#resume {
     background-color: #3A3A3C;
     border:none;
     color:white;
     border-radius:8px;
     height:35px;
     width:350px;
+    font-weight:500;
 
 }
 
