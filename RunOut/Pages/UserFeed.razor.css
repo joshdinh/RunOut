@@ -1,0 +1,103 @@
+﻿.accountModal {
+    position:relative;
+
+}
+
+
+.accountBackground {
+    position: static;
+    top:0;
+    left:0;
+}
+
+.accountName {
+    position: absolute;
+    left:16px;
+    top:24px;
+
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 40px;
+    color: #34C759;
+}
+.location {
+    position: absolute;
+    left: 16px;
+    top: 64px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #F4F5F7;
+}
+
+.friends {
+    width: 81px;
+    height: 32px;
+    position: absolute;
+    left: 293px;
+    top: 16px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+}
+
+.myPost {
+    width: 81px;
+    height: 32px;
+    position: absolute;
+    left: 293px;
+    top: 56px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+}
+
+
+
+.bottomNav {
+    position: absolute;
+    width: 358px;
+    height: 56px;
+    left: 17px;
+    top: 754px;
+}
+
+.homepage {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 64px;
+    top: 770px;
+}
+
+.calendar {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 139.33px;
+    top: 770px;
+}
+.profile {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 238px;
+    top: 770px;
+}
+
+.feed {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 326px;
+    top: 770px;
+}
+
+.friendsList {
+    position:absolute;
+    top:115px;
+    left:0px;   
+
+}

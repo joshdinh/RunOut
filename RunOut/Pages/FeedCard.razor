@@ -1,0 +1,21 @@
+﻿@page "/FeedCard"
+@layout MainLayout
+
+<div className = "card">
+
+	@if (_display)
+	{
+		<img src="Images/FeedCard_Comment.png" class="friendsList" />
+
+	}
+	else {
+
+		<img src="Images/FeedCard.png" class="friendsList" />
+	}
+
+</div>
+@code {
+	private bool _display = false;
+	private void Switch(MouseEventArgs e)
+		=> _display = !_display;
+}
