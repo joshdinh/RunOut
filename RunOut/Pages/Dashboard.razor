@@ -1,4 +1,38 @@
-﻿
+﻿@page "/dashboard"
+@layout MainLayout
+
+<h1>Name of Marathon</h1>
+<ul style="list-style">
+    <li>Distance</li>
+    <li>Location</li>
+    <li>Notes</li>
+</ul>
+
+<p>Days left</p>
+
+<a href='/noprogram'>
+    <input type="button" value="ADD NEW RACE DATE" />
+</a>
+<a href='/TipsAndTricks'>
+    <input type="button" value="TIPS AND TRICKS" />
+</a>
+
+
+
+<form>
+    <h3>Week x</h3>
+    <div class="grid-container">
+        <div class="grid-item">Rest</div>
+        <div class="grid-item">Interval</div>
+        <div class="grid-item">Rest</div>
+        <div class="grid-item">Interval</div>
+        <div class="grid-item">Rest</div>
+        <div class="grid-item">Interval</div>
+        <div class="grid-item">12 Minute Long Run</div>
+
+    </div>
+
+</form>
 
 @code {
 
