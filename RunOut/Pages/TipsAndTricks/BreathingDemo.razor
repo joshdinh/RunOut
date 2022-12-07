@@ -1,0 +1,51 @@
+﻿@page "/breathingdemo"
+@layout TipsLayout
+
+
+
+<div class="content">
+    <div class="tipButtons">
+        <a href="/runningform">
+            <button id="running">
+                Running Form
+            </button>
+        </a>
+
+        <a href="/breathing">
+            <button disabled id="breathing">
+                Breathing
+            </button>
+        </a>
+
+        <a href="/stretching">
+            <button id="stretching">
+                Stretch
+            </button>
+        </a>
+    </div>
+    <div class="actualTips">
+        <div class="video">
+            <iframe width="290" height="200" src="https://www.youtube.com/embed/V-2szNtHea4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h3>BREATHING DEMONSTRATION</h3>
+        <p>
+           Watch the video above to learn the best breathing patterns and when to transition between them on your runs!
+        </p>
+
+        <div class="sideScrollButtons">
+            <a href="/breathing">
+                <button class="back">
+                    <p>
+                        &#129168;
+                    </p>
+                </button>
+            </a>
+          
+
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

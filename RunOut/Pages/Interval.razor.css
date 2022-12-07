@@ -1,0 +1,151 @@
+﻿.content {
+    height: 844px;
+    padding: 0px;
+}
+
+.nav {
+    background-color: #1C1C1E;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    font-weight: 500;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    font-family: 'Roboto',sans-serif;
+   
+}
+
+#heading {
+    padding-top: 14px;
+    margin-left:auto;
+    margin-right:auto;
+
+
+}
+
+#back {
+    color: #34C759;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    height:20px;
+    width:78px;
+    padding-top:11px;
+    margin-left:-15px;
+    margin-right:0px;
+}
+
+.date{
+    display:flex;
+    flex-direction:row;
+    padding-right:10px;
+    padding-top:15px;
+}
+
+#number {
+    font-size:14px;
+    font-weight:800;
+    color: #969BAB;
+    margin-right:8px;
+    font-family:"Manrope", sans-serif;
+}
+
+#weekday {
+    color: #969BAB;
+    border:none;
+    border-radius:4px;
+    height:20px;
+    width: 37px;
+    font-size:10px;
+}
+
+.intervals {
+    background-color: rgb(28, 28, 30,0.59);
+    border-radius: 16px;
+    margin: 10px 30px 0px 30px;
+    font-family: "Manrope",sans-serif;
+    text-align:center;
+
+}
+
+.runtimes {
+    display: flex;
+    flex-direction: column;
+    font-family: "Manrope", sans-serif;
+}
+
+    .runtimes div {
+        background-color: #2C2C2E;
+        height: 78px;
+        width: 298px;
+        padding: 25px 0px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        border-width: 0 0 1px 0; /* top right bottom left */
+      
+        border-bottom-style: solid;
+        border-bottom-color: #38383A;
+        
+        display:flex;
+        flex-direction:row;
+        justify-content:space-evenly;
+
+    }
+
+    .runtimes h4{
+        color:white;
+        font-weight:500;
+        font-size:18px;
+        padding-top:6px;
+        margin-left:15px;
+    }
+
+    .runtimes p {
+        color: #969BAB;
+        font-weight: 600;
+        border-radius: 4px;
+        background-color: #3A3A3C;
+        width: 47px;
+        height: 36px;
+        margin-left: auto;
+        margin-right:30px;
+        padding-top:6px;
+        
+    }
+
+#first{
+    border-top-left-radius:16px;
+    border-top-right-radius:16px;
+    margin-top:15px;
+}
+
+#last{
+    border-bottom-left-radius:16px;
+    border-bottom-right-radius:16px;
+    margin-bottom:15px;
+    border-bottom:none;
+}
+
+#start {
+    color: white;
+    background-color: #34C759;
+    border: none;
+    border-radius: 8px;
+    width: 298px;
+    height: 32px;
+    font-weight: 800;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+img{
+    margin-left:30px;
+    width:35px;
+    height:35px;
+}
+
+
+    

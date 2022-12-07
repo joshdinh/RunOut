@@ -1,0 +1,42 @@
+﻿.content{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    height:844px;
+    padding:0px;
+
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size:45px;
+    font-weight: 700;
+}
+
+.runDetails {
+    background-color: #1C1C1E;
+    color:white;
+    border-radius:16px;
+    font-family: "Roboto",sans-serif;
+    margin:135px 20px 60px 20px;
+    padding:20px;
+}
+
+#resume {
+    background-color: #3A3A3C;
+    border:none;
+    color:white;
+    border-radius:8px;
+    height:35px;
+    width:350px;
+    font-weight:500;
+
+}
+
+.btn {
+
+    padding: 0px;
+    display:flex;
+    justify-content:center;
+}
