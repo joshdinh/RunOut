@@ -3,12 +3,12 @@
 
 <div class='login-box'>
     <h1> RUN OUT</h1>
-    <form>
-        <label>Username</label>
-        <input type="text" placeholder="" />
+    <form method="POST">
+        <label for="Username">Username</label>
+        <input type="text" username="Username" placeholder="Enter Username" />
 
-        <label>Password</label>
-        <input type="password" placeholder="" />
+        <label for="Password">Password</label>
+        <input type="password" password="password" placeholder="" />
         <a href='/dashboard'>
         <input type="button" value="SUBMIT" />
         </a>
@@ -16,6 +16,10 @@
 
 
 </div>
+
 @code {
+    public void UserLogin(){
+
+    }
     
 }

@@ -4,9 +4,9 @@
 
 <div class="signup-box">
     <h1> RUN OUT</h1>
-    <form>
+    <EditForm Model="" OnValidSubmit="Submit">
         <label>First Name</label>
-        <input type="text" placeholder="">
+        <InputText type="text" placeholder="">
         <label>Last Name</label>
         <input type="text" placeholder="" />
 
@@ -26,12 +26,15 @@
         <a href='/noprogram'> 
             <input type="button" value="SUBMIT" />
         </a>
-    </form>
+    </EditForm>
 </div>
 
 <p>Already have an account? <a href='/login'>Login Here</a></p>
 
 
 @code {
+    public void StoreUserSignup(){
+        
+    }
 
 }
