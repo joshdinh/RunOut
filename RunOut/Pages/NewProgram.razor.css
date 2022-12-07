@@ -1,0 +1,58 @@
+﻿
+.content {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+.back {
+    background-color: #2C2C2E;
+    border-radius: 16px;
+    text-align: center;
+    width: 343px;
+    height: 650px;
+    margin: 30px 30px 40px 30px;
+}
+
+.newButtons {
+    justify-content: center;
+    display: block;
+}
+
+    .newButtons button {
+        border: none;
+        background-color: rgb(84, 84, 88,0.65);
+        width: 271px;
+        height: 96px;
+        color: lightgrey;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 16px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+.conButton {
+    display: inline-block;
+    border: none;
+    padding-top: 12px;
+    background-color: #4CAF50;
+    width: 179px;
+    height: 48px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 16px;
+    margin-top: 50px;
+}
+
+#iconPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 48px;
+    height: 48px;
+    filter: invert(67%) sepia(6%) saturate(636%) hue-rotate(188deg) brightness(92%) contrast(87%);
+    background-repeat: no-repeat;
+}
