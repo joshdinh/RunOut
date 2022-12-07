@@ -1,0 +1,67 @@
+﻿@page "/dashboard"
+@layout MainLayout
+
+<div class='container'>
+    <div class='info-container'>
+        <div class='with-bg time-container'>
+            <p class='day'>13</p>
+            <p class='days'>Days left</p>
+            <p class='date'>Dec. 11</p>
+        </div>
+
+        <div class='info-section with-bg'>
+            <h1>Name of Marathon</h1>
+
+            <ul style="list-style">
+                <li>Distance:</li>
+                <li>Location:</li>
+                <li>Notes:</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <a href='/noprogram'>
+        <input type="button" value="ADD NEW RACE DATE" class='button with-bg' />
+    </a>
+
+    <a href='/runningform'>
+        <input type="button" value="TIPS AND TRICKS" class='button with-bg' />
+    </a>
+
+
+
+    <div class='with-bg week-workout'>
+        <p>WEEK X</p>
+        
+        <div class="grid-container">
+            <div class="grid-item"><h1>Rest</h1>
+                <p>Description</p>
+                <button>START</button>
+            </div>
+
+            <div class="grid-item">Interval</div>
+           
+            <div class="grid-item">Rest</div>
+          
+            <div class="grid-item">Interval</div>
+         
+            <div class="grid-item">Rest</div>
+           
+            <div class="grid-item">Interval</div>
+            
+            <div class="grid-item">12 Minute Long Run</div>
+        </div>
+    </div>
+
+    <div class='with-bg nav'>
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+    </div>
+</div>
+
+@code {
+
+}

@@ -1,0 +1,40 @@
+﻿@page "/signup"
+@layout MainLayout
+
+
+<div class="signup-box">
+    <h1> RUN OUT</h1>
+    <EditForm Model="" OnValidSubmit="Submit">
+        <label>First Name</label>
+        <InputText type="text" placeholder="">
+        <label>Last Name</label>
+        <input type="text" placeholder="" />
+
+        <label>Username</label>
+        <input type="text" placeholder="" />
+    
+        <label>Password</label>
+        <input type="password" placeholder="" />
+        <label>Confirm Password</label>
+        <input type="password" placeholder="">
+
+
+        <label>Email</label>
+        <input type="text" placeholder="">
+        <label>Confirm Email</label>
+        <input type="text" placeholder=""> 
+        <a href='/noprogram'> 
+            <input type="button" value="SUBMIT" />
+        </a>
+    </EditForm>
+</div>
+
+<p>Already have an account? <a href='/login'>Login Here</a></p>
+
+
+@code {
+    public void StoreUserSignup(){
+        
+    }
+
+}
