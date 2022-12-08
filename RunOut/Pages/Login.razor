@@ -1,0 +1,53 @@
+﻿@page "/login"
+@layout MainLayout
+
+<div class='login-box'>
+    <h1> RUN OUT</h1>
+    @if (errorMessage != null)
+    {
+        <p class="text-danger">@errorMessage</p>
+    }
+    <form method="POST">
+        <label> Username</label>
+        <input type="text" @bind="username" />
+
+        <label> Password</label>
+        <input type="password" @bind="password"/>
+        
+        <input type="button" value="SUBMIT" onclick="@UserLogin" />
+  
+    </form>
+
+</div>
+
+@code {
+        @using System.Collections.Generic
+        @using Microsoft.AspNetCore.Components.Routing
+        @inject IJSRuntime JSRuntime
+        @inject NavigationManager NavManager
+        
+        string username;
+        string password;
+        string errorMessage;
+        
+        
+
+        private async void UserLogin()
+        {
+            //test users 
+            Database.users.TryAdd("user1", "pass1");
+      
+            string correctPassword="";
+            if (Database.users.TryGetValue(username, out correctPassword) && correctPassword == password)
+            {
+                //login successful 
+                await JSRuntime.InvokeAsync<object>("console.log", "Login successful!");
+                
+                NavManager.NavigateTo("/dashboard");
+            }else{
+                 //Login failed 
+               errorMessage = "Invalid username or password.";
+                
+            }
+        }
+}
