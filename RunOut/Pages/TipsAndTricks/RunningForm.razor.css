@@ -1,0 +1,93 @@
+﻿
+
+.content {
+    text-align: center;
+    padding-bottom: 20px;
+    
+}
+
+.tipButtons {
+    display: flex;
+    justify-content: center;
+}
+
+    .tipButtons button {
+        border: none;
+        background-color: rgb(84, 84, 88,0.65);
+        color: white;
+        font-size: 15px;
+        font-weight: 400;
+        font-family: 'Roboto',sans-serif;
+        padding: 10px 25px;
+
+    }
+
+
+#running {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: #636366;
+}
+
+#stretching {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.actualTips {
+    background-color: rgb(28, 28, 30,0.59);
+    margin: 40px 30px 10px 30px;
+    border-radius: 16px;
+    text-align:left;
+ 
+   
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#runformPic{
+    margin:20px 20px 10px 20px;
+    width:290px;
+    height:200px;
+    border-radius:16px;
+}
+
+.articlePic{
+    text-align:center;
+}
+
+#articleHeading {
+    color: #34C759;
+    font-weight: 700;
+    margin: 0 25px 0 25px;
+}
+
+.content p{
+    color: white;
+    margin: 10px 25px;
+    font-weight: 400;
+    font-family: 'Roboto',sans-serif;
+}
+
+.next {
+    width: 23px;
+    height: 24px;
+    border-radius: 4px;
+    border-color: rgb(84, 84, 88,0.65);
+    border-width:0.5px;
+    border-style:solid;
+    
+    background-color: transparent;
+    margin-left: 300px;
+    margin-bottom:40px;
+}
+
+    .next p {
+        font-size: 30px;
+        margin-left:2px;
+        margin-top:-14px;
+        color: white;
+    }

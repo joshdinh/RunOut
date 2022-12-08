@@ -1,0 +1,51 @@
+﻿@page "/regrun"
+
+<div class="content">
+    <div class="nav">
+        <button id="back"> &#10094;</button>
+        <p id="heading">Run</p>
+        <div class="date">
+            <p id="number">4</p>
+            <button disabled id="weekday">Fri</button>
+        </div>
+
+    </div>
+
+    <div class="belowNav">
+        
+
+        <div class="stopwatch">
+            <h1>12 : 29</h1>
+        </div>
+
+        <div class="stats">
+            <p id="statsHeading">OVERVIEW</p>
+            <div id="distance">
+                <div>
+                    <h2>Distance</h2>
+                    <p class="target">Target: 10km</p>
+                </div>
+                <p class="number">5</p>
+                <p class="km">KM</p>
+
+            </div>
+            <div id="pace">
+                <div>
+                    <h2>Average Pace</h2>
+                    <p class="target">Target: 5:30/km</p>
+                </div>
+                <p class="number">5:42</p>
+                <p class="km">/KM</p>
+
+            </div>
+            <button id="pause">PAUSE</button>
+            <a href="/runcomplete"><button id="finish">FINISH</button></a>
+            
+            
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

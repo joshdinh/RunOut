@@ -1,0 +1,36 @@
+﻿@page "/UserFeed"
+@layout MainLayout
+<div>
+	<div class="accountModal">
+		<img src="Images/Account_UserFeed.png" class="accountBackground" />
+		<h2 class="accountName">@accountName</h2>
+		<p class="location">@location</p>
+		<button class="friends" @onclick = "Switch"/>
+		@if(_display)
+		{
+			<img src="Images/FriendList.png" class="friendsList" />
+		}
+
+		<div class="feedContainer">
+			<FeedCard/>
+		</div>
+
+	</div>
+
+	<img src="Images/BottomNav_UserFeed.png" class="bottomNav" />
+	<a href="/runningform" class="homepage"></a>
+	<a href="/calendar" class="calendar"></a>
+	<a href="/runningform" class="profile"></a>
+	<a href="/userfeed" class="feed"></a>
+</div>
+
+@code {
+	[Parameter]
+	public string accountName { get; set; } = "Chris Evans";
+	[Parameter]
+	public string location { get; set; } = "Calgary, AB";
+
+	private bool _display = false;
+	private void Switch(MouseEventArgs e)
+		=> _display = !_display;
+}

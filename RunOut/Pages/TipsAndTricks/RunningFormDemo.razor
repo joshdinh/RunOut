@@ -1,0 +1,47 @@
+﻿@page "/runningformdemo"
+@layout TipsLayout
+
+
+<div class="content">
+    <div class="tipButtons">
+        <a href="/runningform">
+            <button disabled id="running">
+                Running Form
+            </button>
+        </a>
+
+        <a href="/breathing">
+            <button>
+                Breathing
+            </button>
+        </a>
+
+        <a href="/stretching">
+            <button id="stretching">
+                Stretch
+            </button>
+        </a>
+    </div>
+    <div class="actualTips">
+        <div class="video"> <iframe width="290" height="200" src="https://www.youtube.com/embed/brFHyOtTwH4?" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <h3>FORM DEMONSTRATION</h3>
+      
+            <p>Still confused about what good form looks like? We've got you covered! Watch the video above to get a visual representation.
+            </p>
+       
+        <div class="sideScrollButtons">
+            <a href="/runningform"><button class="back">
+                <p>
+                    &#129168;
+                </p>
+            </button></a>
+            <a href="/runningformsurvey"><button class="next"><p>&#129170;</p></button></a>
+            
+       
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

@@ -1,0 +1,185 @@
+﻿.content {
+    height: 844px;
+    padding: 0px;
+}
+
+.nav {
+    background-color: #1C1C1E;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: 500;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    font-family: 'Roboto',sans-serif;
+}
+
+#heading {
+    padding-top: 14px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#back {
+    color: #34C759;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    height: 20px;
+    width: 78px;
+    padding-top: 11px;
+    margin-left: -15px;
+    margin-right: 0px;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+
+#number {
+    font-size: 14px;
+    font-weight: 800;
+    color: #969BAB;
+    margin-right: 8px;
+    font-family: "Manrope", sans-serif;
+}
+
+#weekday {
+    color: #969BAB;
+    border: none;
+    border-radius: 4px;
+    height: 20px;
+    width: 37px;
+    font-size: 10px;
+}
+
+.belowNav {
+    font-family: "Manrope", sans-serif;
+}
+
+.nextNotif, .stopwatch {
+    background-color: #2C2C2E;
+    border-radius: 16px;
+    text-align: center;
+    width: 237px;
+    margin-left:auto;
+    margin-right:auto;
+}
+    .nextNotif {
+        margin-top: 25px;   
+        height: 103px;
+    }
+
+    .nextNotif p {
+        color: #969BAB;
+        font-weight:700;
+        margin-bottom:8px;
+    }
+
+    .nextNotif h1{
+        color:white;
+        font-weight:800;
+        font-size:50px;
+    }
+
+    .stopwatch{
+        height:130px;
+        margin-top:130px;
+    }
+
+    .stopwatch h1 {
+        color: #FF9F0A;
+        font-weight:800;
+        font-size: 60px;
+        padding-top:30px;
+    }
+
+.stats {
+    border-radius: 16px;
+    background-color: #1C1C1E;
+    margin-top:20px;
+
+}
+
+#statsHeading {
+    padding: 15px 25px 0 25px;
+    color: #969BAB;
+    font-family: "Roboto",sans-serif;   
+    font-weight:500;
+}
+
+#distance, #pace {
+    background-color: #2C2C2E;
+    width:366px;
+    height:96px;
+    border-radius:16px;
+    margin-left:auto;
+    margin-right:auto;
+
+    display:flex;
+    flex-direction:row;
+
+
+}
+
+#distance{
+    margin-bottom:10px;
+}
+#distance h2, #pace h2{
+    color:white;
+    font-weight:600;
+    font-size:18px;
+    padding:25px 0px 0px 13px;
+}
+
+.target {
+    background-color: #3A3A3C;
+    border-radius: 16px;
+    padding: 0px 10px;
+    margin: 0px 10px;
+    color: #969BAB;
+    font-family: "Roboto",sans-serif;
+    font-weight: 500;
+}
+
+.km{
+   color:white;
+   line-height:100px;
+   font-weight:500;
+   margin-left:5px;
+   
+}
+
+.number {
+    color: #969BAB;
+    font-size: 50px;
+    font-weight: 800;
+    padding-top:10px;
+    padding-left:15px;
+}
+
+
+.stats button {
+    border: none;
+    color: white;
+    border-radius: 8px;
+    width: 358px;
+    height:45px;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 10px 15px 0 15px;
+   
+}
+ #start {
+    background-color: #3A3A3C;
+    margin-top:15px;
+}
+#finish{
+    background-color: #34C759;
+    margin-bottom:15px;
+}
