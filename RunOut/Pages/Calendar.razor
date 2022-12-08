@@ -5,7 +5,7 @@
 
 
 	<img src="Images/MonthSelector_Calendar.png" class="monthSelector" />
-	<h2 role="status"  class="dateTitle">  @month[monthValue]</h2>
+	<h2 role="status" class="dateTitle">  @month[monthValue]</h2>
 	<button class="increaseMonth" @onclick="incrementMonth"></button>
 	<button class="decreaseMonth" @onclick="decrementMonth"></button>
 
@@ -14,10 +14,16 @@
 	<h2 role="status" class="weekTitle">Week @weekValue </h2>
 	<button class="increaseWeek" @onclick="incrementWeek"></button>
 	<button class="decreaseWeek" @onclick="decrementWeek"></button>
- 
-	<div class="calendarCardContainer">
 
-	<Calendar_Card title ="@test.First().day"/>
+	<div class="calendarCardContainer">
+		<--! Must change the index i based on week selected (so week 1=indices 0 to 6 and week 2=indices 7 to 13 etc)-->
+			</>
+		@for (int i = 0; i < 7; i++)
+		{
+				<Calendar_Card month=@calendar[i].month day=@calendar[i].day
+						   title=@calendar[i].runType
+						   distance=@calendar[i].distance></Calendar_Card>
+		}
 
 
 	</div>
@@ -33,32 +39,133 @@
 @code {
 	public int weekValue = 0;
 	private int monthValue = 0;
-	private string[] month = { "January","Feburary","March","April","May","June","July","August", "September", "October", "November", "December" };
+	private int currentDay;
+	private string[] month = { "January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
+	// the worst interval struct you would ever come across, no idea how to determine intervals based on distance and pace
+	// probably a complex math calculation, i just randomly decided 8 intervals would be enough
 
-	public struct Tester
+	public struct Interval
 	{
-		public string day;
-		public string month;
+		double walk1;
+		double run1;
+		double walk2;
+		double run2;
+		double walk3;
+		double run3;
+		double walk4;
+		double run4;
 
-		public Tester(string day, string month)
+		// Takes the amount of time you want to start your intervals at and the amount of time
+		// you want your last two intervals to span, idk lol i made a random function that doesn't really
+		// take into account distance you want to run or pace if anyone has a better idea on how to
+		// calculate this feel free
+		public Interval(double starting, double ending)
 		{
-			this.day = day;
+			double interval = ending - starting / 3;
+			this.walk1 = starting;
+			this.run1 = starting;
+			this.walk2 = starting + interval;
+			this.run2 = starting + interval;
+			this.walk3 = walk2 + interval;
+			this.run3 = run2 + interval;
+			this.walk4 = run3 + interval;
+			this.run4 = run3 + interval;
+		}
+
+	}
+
+	public struct Day
+	{
+		public string month;
+		public int day;
+		public string runType;
+		public double distance;
+		public Interval intervals;
+		public bool active;
+
+		public Day(string month, int day, string run, double distance, Interval intervalRuns, bool active)
+		{
 			this.month = month;
+			this.day = day;
+			this.runType = run;
+			this.distance = distance;
+			this.intervals = intervalRuns;
+			this.active = active;
 		}
 	}
-	public List<Tester> test= new List<Tester>();
+
+
+	public List<Day> calendar = new List<Day>();
+	Interval nullInterval = new Interval(0.0, 0.0);
+
+	// Calendar constructor with no parameters, just doing this to test array
 	public Calendar()
 	{
-		
-		test.Add(new Tester("1","2"));
+		initReturningCal();
 	}
 
+	public Calendar(int calendarType)
+	{
+		if (calendarType == 1)
+		{
+			initNewCal();
+		}
+		else if (calendarType == 2)
+		{
+			initReturningCal();
+		}
+		else if (calendarType == 3)
+		{
+			initFinishedCal();
+		}
+	}
+
+	// Populate calendar with entire program
+	public void initNewCal()
+	{
+
+	}
+
+
+	// Populate calendar with in progress program (?) maybe we need to show the previous dates
+	// but just use currentWeek/ CurrentDay field as well as active bool to display relevant
+	// week on screen by default
+	// Still need to have proper interval objects for interval runs, i was lazy ;-)
+	public void initReturningCal()
+	{
+		monthValue = 11;
+		calendar.Add(new Day("Dec", 8, "Rest", 0, nullInterval, true));
+		calendar.Add(new Day("Dec", 9, "Run", 1.5, nullInterval, false));
+		calendar.Add(new Day("Dec", 10, "Rest", 0, nullInterval, false));
+		calendar.Add(new Day("Dec", 11, "Interval", 2, nullInterval, false));
+		calendar.Add(new Day("Dec", 12, "Rest", 0, nullInterval, false));
+		calendar.Add(new Day("Dec", 13, "Run", 2, nullInterval, false));
+		calendar.Add(new Day("Dec", 14, "Rest", 0, nullInterval, false));
+		calendar.Add(new Day("Dec", 15, "Interval", 2.5, nullInterval, false));
+		calendar.Add(new Day("Dec", 16, "Rest", 0, nullInterval, false));
+		calendar.Add(new Day("December", 17, "Run", 2.5, nullInterval, false));
+		calendar.Add(new Day("December", 18, "Rest", 0, nullInterval, false));
+		calendar.Add(new Day("December", 19, "Interval", 3, nullInterval, false));
+		calendar.Add(new Day("December", 20, "Rest", 0, nullInterval, false));
+		calendar.Add(new Day("December", 21, "Run", 3, nullInterval, false));
+	}
+
+	public void initFinishedCal()
+	{
+
+	}
+
+	private void incrementDay()
+
+	{
+		currentDay++;
+	}
 
 	private void incrementMonth()
 	{
 		monthValue++;
-		if(monthValue >month.Length-1)
+		if (monthValue > month.Length - 1)
 		{
 			monthValue = 0;
 
@@ -70,7 +177,7 @@
 		monthValue--;
 		if (monthValue < 0)
 		{
-			monthValue = month.Length-1;
+			monthValue = month.Length - 1;
 		}
 	}
 
@@ -93,6 +200,5 @@
 			decrementMonth();
 		}
 	}
-
- 
 }
+
