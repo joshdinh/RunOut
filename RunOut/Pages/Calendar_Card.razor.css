@@ -1,0 +1,75 @@
+﻿
+.title {
+    position: absolute;
+    left:68px;
+    top: 8px;
+
+    color: #F4F5F7;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.distance {
+    position: absolute;
+    left: 68px;
+    top: 30px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #969BAB;
+}
+.pace {
+    position: absolute;
+    left: 75px;
+    top: 52px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 16px;
+    color: #969BAB;
+    /* or 200% */
+}
+    
+.day{
+    position:absolute;
+    left:25px;
+    top:16px;
+
+    width: 20px;
+    height: 16px;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+}
+
+.month {
+    position: absolute;
+    left: 20px;
+    top: 38px;
+
+
+    width: 29px;
+    height: 7px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 16px;
+    /* or 200% */
+
+    text-align: center;
+    color: #969BAB;
+}
+
+
+.card {
+    position: relative;
+    background-color: none;
+    background-color: #fff0;
+}

@@ -1,0 +1,48 @@
+﻿@page "/calendarCard"
+@layout MainLayout
+
+<div class="card">
+	<img src="Images/@path" class="cardContainer" />
+	<h3 class="title"> @title</h3>
+    <p class="distance">@distance km</p>
+    <p class="pace">@pace</p>
+
+    <p class="day">@day</p>
+    <p class="month"> @month</p>
+
+</div>
+@code {
+    [Parameter]
+    public string title { get; set; } = "Interval";
+    [Parameter]
+    public double distance { get; set; }
+    [Parameter]
+    public string pace{ get; set; } = "6:30";
+    [Parameter]
+    public string month { get; set; } = "Month";
+    [Parameter]
+    public int day { get; set; } = 1;
+    [Parameter]
+    public bool active { get; set; } = false;
+
+    private string path; 
+
+    public Calendar_Card()
+    {
+        if (active == true){
+            path = "StartRunCard.png";
+        }
+        else {
+            path = "InactiveRunCard.png";
+        }
+    }
+
+    public Calendar_Card(string title)
+    {
+        this.title = title;
+    }
+
+     public void setActiveCard(){
+        path = "StartRunCard.png";
+     }
+}
