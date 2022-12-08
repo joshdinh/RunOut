@@ -1,40 +1,62 @@
-﻿@page "/signup"
+﻿@using Microsoft.AspNetCore.Components;
+@using Microsoft.AspNetCore.Components.Web;
+
+@page "/signup"
 @layout MainLayout
 
 
 <div class="signup-box">
-    <h1> RUN OUT</h1>
-    <EditForm Model="" OnValidSubmit="Submit">
+    <h1>RUN OUT</h1>
+
+    <form>
         <label>First Name</label>
-        <InputText type="text" placeholder="">
+        <input type="text" @bind="firstName" />
         <label>Last Name</label>
-        <input type="text" placeholder="" />
+        <input type="text" @bind="lastName" />
 
         <label>Username</label>
-        <input type="text" placeholder="" />
+        <input type="text" @bind="username" />
     
         <label>Password</label>
-        <input type="password" placeholder="" />
+        <input type="password" @bind="password" />
         <label>Confirm Password</label>
-        <input type="password" placeholder="">
+        <input type="password" />
 
 
         <label>Email</label>
-        <input type="text" placeholder="">
+        <input type="text" />
         <label>Confirm Email</label>
-        <input type="text" placeholder=""> 
-        <a href='/noprogram'> 
-            <input type="button" value="SUBMIT" />
-        </a>
-    </EditForm>
+        <input type="text" /> 
+        <input type="button" value="SUBMIT" onclick="@FormSubmitted" />
+    </form>
 </div>
 
 <p>Already have an account? <a href='/login'>Login Here</a></p>
 
 
 @code {
-    public void StoreUserSignup(){
-        
-    }
+    @inject IJSRuntime JSRuntime
+    @inject NavigationManager NavManager
 
+    string firstName;
+    string lastName;
+    string username;
+    string password;
+
+    private void FormSubmitted() {
+        JSRuntime.InvokeVoidAsync("console.log", "Name: ", firstName, " ", lastName);
+        JSRuntime.InvokeVoidAsync("console.log", "Username: ", username);
+        JSRuntime.InvokeVoidAsync("console.log", "Password: ", password);
+        Database.users.Add(username, password);
+        // Database.userData.Add(username, new UserData());
+
+        string result;
+        if (Database.users.TryGetValue(username, out result)) {
+            JSRuntime.InvokeVoidAsync("console.log", "Result", result);
+        } else {
+            JSRuntime.InvokeVoidAsync("console.log", "Insert failed");
+        }
+
+        NavManager.NavigateTo("/noprogram");
+    }
 }
