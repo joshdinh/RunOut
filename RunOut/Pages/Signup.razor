@@ -11,13 +11,13 @@
     <form>
         <label>First Name</label>
         <input type="text" @bind="firstName" />
-        
+
         <label>Last Name</label>
         <input type="text" @bind="lastName" />
 
         <label>Username</label>
         <input type="text" @bind="username" />
-    
+
         <label>Password</label>
         <input type="password" @bind="password" />
         <label>Confirm Password</label>
@@ -27,7 +27,7 @@
         <label>Email</label>
         <input type="text" />
         <label>Confirm Email</label>
-        <input type="text" /> 
+        <input type="text" />
         <input type="button" value="SUBMIT" onclick="@FormSubmitted" />
     </form>
 </div>
@@ -38,13 +38,15 @@
 @code {
     @inject IJSRuntime JSRuntime
     @inject NavigationManager NavManager
+    @inject NavigationManager NavManager
 
     string firstName;
     string lastName;
     string username;
     string password;
 
-    private void FormSubmitted() {
+    private void FormSubmitted()
+    {
         JSRuntime.InvokeVoidAsync("console.log", "Name: ", firstName, " ", lastName);
         JSRuntime.InvokeVoidAsync("console.log", "Username: ", username);
         JSRuntime.InvokeVoidAsync("console.log", "Password: ", password);
@@ -52,9 +54,13 @@
         // Database.userData.Add(username, new UserData());
 
         string result;
-        if (Database.users.TryGetValue(username, out result)) {
+        if (Database.users.TryGetValue(username, out result))
+        {
+            Database.currentUser = username;
             JSRuntime.InvokeVoidAsync("console.log", "Result", result);
-        } else {
+        }
+        else
+        {
             JSRuntime.InvokeVoidAsync("console.log", "Insert failed");
         }
 

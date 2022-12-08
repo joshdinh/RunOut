@@ -2,20 +2,20 @@
 {
     public class UserData
     {
-        public string UserName;
-        public string Password;
+        public string firstName;
+        public string lastName;
         public string marathonRaceDate;
         public string marathonName;
-        //public string marathonLocation;
         public int currentWorkoutWeek;
         public int currentWorkoutDay;
         public WorkoutSet WorkoutSet;
 
-        public UserData(string marathonRaceDate, string marathonName, string marathonLocation, int currentWorkoutWeek, int currentWorkoutDay, WorkoutSet workoutSet)
+        public UserData(string firstName, string lastName, string marathonRaceDate, string marathonName, int currentWorkoutWeek, int currentWorkoutDay, WorkoutSet workoutSet)
         {
+            this.firstName = firstName;
+            this.lastName = lastName;
             this.marathonRaceDate = marathonRaceDate;
             this.marathonName = marathonName;
-            //this.marathonLocation = marathonLocation;
             this.currentWorkoutWeek = currentWorkoutWeek;
             this.currentWorkoutDay = currentWorkoutDay;
             WorkoutSet = workoutSet;

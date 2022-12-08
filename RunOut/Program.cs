@@ -28,4 +28,7 @@ app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
+//initilize database
+Database.SeedDictionaries();
+
 app.Run();

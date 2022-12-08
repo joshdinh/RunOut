@@ -6,8 +6,8 @@
     </div>
 
     <div class="name-container">
-        <h1>NAME</h1>
-        <p>Location</p>
+        <h1>name</h1>
+        <p>Location: Calgary, AB</p>
     </div>
 
     <div class="pace-container">
@@ -19,7 +19,7 @@
         <div class="pace">
             6:09
         </div>
-        
+
         <div class="km">
             /KM
         </div>
@@ -27,7 +27,7 @@
 
     <div class="achievements-container">
         <div class="title">ACHIEVEMENTS</div>
-        
+
         <div class="achievement-item">
             <h1>Medal Name</h1>
         </div>
@@ -35,7 +35,7 @@
         <div class="achievement-item">
             <h1>Medal Name</h1>
         </div>
-        
+
         <div class="achievement-item">
             <h1>Medal Name</h1>
         </div>
@@ -51,13 +51,21 @@
 
 
     <div class='with-bg nav'>
-        <div>A</div>
-        <div>B</div>
-        <div>C</div>
-        <div>D</div>
+        <img src="Images/BottomNav_UserFeed.png" class="bottomNav" />
+        <a href="/dashboard" class="homepage"></a>
+        <a href="/calendar" class="calendar"></a>
+        <a href="/profile" class="profile"></a>
+        <a href="/userfeed" class="feed"></a>
     </div>
 </div>
 
 @code {
+    //string name;
 
+    //protected override void OnInitialized()
+    //{
+    //UserData data;
+    //Database.userData.TryGetValue(Database.currentUser, out data);
+    //name = data.firstName + " " + data.lastName;
+    // }
 }

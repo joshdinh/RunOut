@@ -6,37 +6,35 @@
     padding: 8px 8px 32px 8px;
 }
 
-.avatar { 
+.avatar {
     display: grid;
     place-items: center;
     padding-top: 8px;
-
 }
 
-.avatar > img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-}
+    .avatar > img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+    }
 
 .name-container {
     background-color: #3A3A3C;
-    border-radius:8px;
+    border-radius: 8px;
     margin: 8px;
     padding: 16px;
 }
 
-.name-container > h1 {
+    .name-container > h1 {
         color: #34C759;
         font-weight: 800;
         padding: 0;
+    }
 
-}
-
-.name-container > p {
+    .name-container > p {
         color: #F4F5F7;
         font-size: 12px;
-}
+    }
 
 .pace-container {
     display: flex;
@@ -54,17 +52,17 @@
     align-items: center;
 }
 
-.avg > h1 {
-    color: #F4F5F7;
-    font-size: 18px;
-    font-weight: 800;
-}
+    .avg > h1 {
+        color: #F4F5F7;
+        font-size: 18px;
+        font-weight: 800;
+    }
 
-.avg > p {
-    color: #969BAB;
-    font-size: 12px;
-    font-weight: 800;
-}
+    .avg > p {
+        color: #969BAB;
+        font-size: 12px;
+        font-weight: 800;
+    }
 
 .pace {
     color: #FF9500;
@@ -85,26 +83,59 @@
     margin: 8px;
     padding: 16px;
 }
+
 .title {
     color: #EBEBF5;
     font-size: 12px;
     text-align: center;
 }
-.achievement-item{
 
-}
-.achievement-item > h1 {
-    color: #F4F5F7;
-    font-size: 18px;
-    font-weight: 800;
+.achievement-item {
 }
 
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border: 1px solid red;
-    margin-top: 16px;
-    background-color: #3A3A3C;
+    .achievement-item > h1 {
+        color: #F4F5F7;
+        font-size: 18px;
+        font-weight: 800;
+    }
+
+
+.bottomNav {
+    position: absolute;
+    width: 358px;
+    height: 56px;
+    left: 17px;
+    top: 754px;
 }
 
+.calendar {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 139.33px;
+    top: 770px;
+}
+
+.profile {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 238px;
+    top: 770px;
+}
+
+.feed {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 326px;
+    top: 770px;
+}
+
+.homepage {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 64px;
+    top: 770px;
+}
