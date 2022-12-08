@@ -6,7 +6,7 @@
     </div>
 
     <div class="name-container">
-        <h1>name</h1>
+        <h1>@name</h1>
         <p>Location: Calgary, AB</p>
     </div>
 
@@ -60,12 +60,12 @@
 </div>
 
 @code {
-    //string name;
+    string name;
 
-    //protected override void OnInitialized()
-    //{
-    //UserData data;
-    //Database.userData.TryGetValue(Database.currentUser, out data);
-    //name = data.firstName + " " + data.lastName;
-    // }
+    protected override void OnInitialized()
+    {
+        UserData data;
+        Database.userData.TryGetValue(Database.currentUser, out data);
+        name = data.firstName + " " + data.lastName;
+    }
 }
