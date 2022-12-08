@@ -28,14 +28,19 @@
     private string path; 
 
     public Calendar_Card()
-         {
-            if (active == true){
-                path = "StartRunCard.png";
-            }
-            else {
-                path = "InactiveRunCard.png";
-            }
-     }
+    {
+        if (active == true){
+            path = "StartRunCard.png";
+        }
+        else {
+            path = "InactiveRunCard.png";
+        }
+    }
+
+    public Calendar_Card(string title)
+    {
+        this.title = title;
+    }
 
      public void setActiveCard(){
         path = "StartRunCard.png";

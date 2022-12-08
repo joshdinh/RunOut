@@ -16,13 +16,10 @@
 	<button class="decreaseWeek" @onclick="decrementWeek"></button>
  
 	<div class="calendarCardContainer">
-	<Calendar_Card title = "LongRun" distance = "10k" pace = "6:30" active = "true"/>
-	<Calendar_Card title="Test23" distance="10k" pace="6:30" active="false" />
-	<Calendar_Card title="LongRun" distance="10k" pace="6:30" active="false" />
-	<Calendar_Card title="Hello" distance="10k" pace="6:30" active="false" />
-	<Calendar_Card title="LongRun" distance="10k" pace="6:30" active="false" />
-	<Calendar_Card title="LongRun" distance="10k" pace="6:30" active="false" />
-	<Calendar_Card title="LongRun" distance="10k" pace="6:30" active="false" />
+
+	<Calendar_Card title ="@test.First().day"/>
+
+
 	</div>
 	<img src="Images/BottonNav_Calendar.png" class="bottomNav" />
 	<a href="/runningform" class="homepage"></a>
@@ -34,10 +31,28 @@
 </div>
 
 @code {
-	private int weekValue = 0;
+	public int weekValue = 0;
 	private int monthValue = 0;
 	private string[] month = { "January","Feburary","March","April","May","June","July","August", "September", "October", "November", "December" };
 
+
+	public struct Tester
+	{
+		public string day;
+		public string month;
+
+		public Tester(string day, string month)
+		{
+			this.day = day;
+			this.month = month;
+		}
+	}
+	public List<Tester> test= new List<Tester>();
+	public Calendar()
+	{
+		
+		test.Add(new Tester("1","2"));
+	}
 
 
 	private void incrementMonth()
