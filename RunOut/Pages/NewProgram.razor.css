@@ -56,3 +56,19 @@
     filter: invert(67%) sepia(6%) saturate(636%) hue-rotate(188deg) brightness(92%) contrast(87%);
     background-repeat: no-repeat;
 }
+
+form {
+    width: 271px;
+    margin-left: 35px;
+    color: lightgrey;
+}
+
+form input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
