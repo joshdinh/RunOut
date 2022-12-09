@@ -40,17 +40,17 @@
                 <button>START</button>
             </div>
 
-            <div class="grid-item">Interval</div>
+            <div class="grid-item">@Calendar_Data.runs[0].runType</div>
            
-            <div class="grid-item">Rest</div>
+            <div class="grid-item">@Calendar_Data.runs[1].runType</div>
           
-            <div class="grid-item">Interval</div>
+            <div class="grid-item">@Calendar_Data.runs[2].runType</div>
          
-            <div class="grid-item">Rest</div>
+            <div class="grid-item">@Calendar_Data.runs[3].runType</div>
            
-            <div class="grid-item">Interval</div>
+            <div class="grid-item">@Calendar_Data.runs[4].runType</div>
             
-            <div class="grid-item">12 Minute Long Run</div>
+            <div class="grid-item">@Calendar_Data.runs[5].runType</div>
         </div>
     </div>
 
@@ -64,5 +64,9 @@
 </div>
 
 @code {
+    //holds calendar data 
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
+
 
 }
