@@ -1,0 +1,11 @@
+﻿<select @bind="Pace">
+    @for (int i = 4; i <= 15; i ++)
+    {
+        <option>@i</option>
+    }
+
+</select>
+
+@code {
+    public int Pace { get; set; }
+}
