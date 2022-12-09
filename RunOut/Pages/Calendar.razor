@@ -5,7 +5,7 @@
 
 
 	<img src="Images/MonthSelector_Calendar.png" class="monthSelector" />
-	<h2 role="status"  class="dateTitle">  @month[monthValue]</h2>
+	<h2 role="status" class="dateTitle">  @month[monthValue]</h2>
 	<button class="increaseMonth" @onclick="incrementMonth"></button>
 	<button class="decreaseMonth" @onclick="decrementMonth"></button>
 
@@ -14,10 +14,16 @@
 	<h2 role="status" class="weekTitle">Week @weekValue </h2>
 	<button class="increaseWeek" @onclick="incrementWeek"></button>
 	<button class="decreaseWeek" @onclick="decrementWeek"></button>
- 
-	<div class="calendarCardContainer">
 
-	<Calendar_Card title ="@test.First().day"/>
+	<div class="calendarCardContainer">
+		@for (int i = 0; i < 3; i++)
+		{
+		<Calendar_Card 
+			month= "@Calendar_Data.runs[i].month"
+			title= "@Calendar_Data.runs[i].runType"
+		> 
+		</Calendar_Card>
+		}
 
 
 	</div>
@@ -33,32 +39,31 @@
 @code {
 	public int weekValue = 0;
 	private int monthValue = 0;
-	private string[] month = { "January","Feburary","March","April","May","June","July","August", "September", "October", "November", "December" };
+	private int currentDay;
+	private string[] month = { "January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
+		/*
+		* 	<Calendar_Card month=@calendar[i].month day=@calendar[i].day
+									title=@calendar[i].runType
+									distance=@calendar[i].distance
+				pace=@calendar[i].pace></Calendar_Card>
+		*/
 
-	public struct Tester
+	[CascadingParameter]
+	protected Calendar_Data ? Calendar_Data { get; set; }
+
+	// changeRun(int day, string type){ find a way to change Calendar_Data vlues runs[i].type = new Type}
+
+	private void incrementDay()
+
 	{
-		public string day;
-		public string month;
-
-		public Tester(string day, string month)
-		{
-			this.day = day;
-			this.month = month;
-		}
+		currentDay++;
 	}
-	public List<Tester> test= new List<Tester>();
-	public Calendar()
-	{
-		
-		test.Add(new Tester("1","2"));
-	}
-
 
 	private void incrementMonth()
 	{
 		monthValue++;
-		if(monthValue >month.Length-1)
+		if (monthValue > month.Length - 1)
 		{
 			monthValue = 0;
 
@@ -70,7 +75,7 @@
 		monthValue--;
 		if (monthValue < 0)
 		{
-			monthValue = month.Length-1;
+			monthValue = month.Length - 1;
 		}
 	}
 
@@ -93,6 +98,5 @@
 			decrementMonth();
 		}
 	}
-
- 
 }
+
