@@ -10,7 +10,7 @@
         </div>
 
         <div class='info-section with-bg'>
-            <h1>Name of Marathon</h1>
+            <h1>@marathonName</h1>
 
             <ul style="list-style">
                 <li>Distance:</li>
@@ -64,5 +64,14 @@
 </div>
 
 @code {
+    string marathonName;
 
+    protected override void OnInitialized()
+    {
+        UserData data;
+        Database.userData.TryGetValue(Database.currentUser, out data);
+        marathonName = data.marathonName;
+
+
+    }
 }

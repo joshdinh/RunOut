@@ -1,11 +1,13 @@
 ﻿.container {
+    width: 360px;
     display: flex;
-    margin: 4px 2px;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    padding-bottom: 20px;
-    height: 100vh;
-    width: 399px;
+    align-items: center;
+    margin: auto;
+    border-radius: 3px;
+    height: 100%;
+    padding-top: 300px;
 }
 
 h1 {
@@ -14,11 +16,13 @@ h1 {
     margin-bottom: 20px;
     color: #34C759;
 }
+
 h2 {
     font-size: 12px;
     margin-bottom: 20px;
     color: #D9DBE1;
 }
+
 .button {
     background-color: #34C759;
     color: white;
@@ -28,11 +32,11 @@ h2 {
     border-radius: 12px;
     border: none;
     font-weight: 700;
-    height:48px;
+    height: 48px;
     width: 132px;
     margin-bottom: 16px;
- 
 }
+
 .button2 {
     background-color: #474A57;
     color: white;
@@ -46,12 +50,51 @@ h2 {
     width: 132px;
     margin-bottom: 16px;
 }
+
 div {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     text-align: center;
     padding-bottom: 20px;
-    
-   
+}
+
+.bottomNav {
+    position: absolute;
+    width: 358px;
+    height: 56px;
+    left: 17px;
+    top: 754px;
+}
+
+.calendar {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 139.33px;
+    top: 770px;
+}
+
+.profile {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 238px;
+    top: 770px;
+}
+
+.feed {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 326px;
+    top: 770px;
+}
+
+.homepage {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 64px;
+    top: 770px;
 }
