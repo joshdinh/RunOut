@@ -4,10 +4,13 @@
 
 <div class="page">
     <main>
-      @Body
+        <CascadingValue Value ="@calendarData">
+            @Body
+        </CascadingValue>
+
     </main>
 </div>
 
 @code {
-
+    private Calendar_Data calendarData = new Calendar_Data();
 }
