@@ -35,7 +35,7 @@
     private async void UserLogin()
     {
         //test users
-        //Database.users.TryAdd("user1", "pass1");
+        Database.users.TryAdd("user1", "pass1");
 
         string correctPassword = "";
         if (Database.users.TryGetValue(username, out correctPassword) && correctPassword == password)
@@ -43,8 +43,8 @@
             //login successful
             await JSRuntime.InvokeAsync<object>("console.log", "Login successful!");
             Database.currentUser = username;
-            //NavManager.NavigateTo("/dashboard");
-            NavManager.NavigateTo("/profile");
+            NavManager.NavigateTo("/dashboard");
+            //NavManager.NavigateTo("/profile");
         }
         else
         {
