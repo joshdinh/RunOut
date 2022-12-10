@@ -30,7 +30,7 @@
                     <h2>Distance</h2>
                     <p class="target">Target: @Calendar_Data.runs[findIndex()].distance km</p>
                 </div>
-                <p class="number">5</p>
+                <p class="number">@distance</p>
                 <p class="km">KM</p>
 
             </div>
@@ -66,6 +66,8 @@
     double pace = 5.30;
     string newPace = "0:00";
 
+    double distance = 0;
+
 
     public int findIndex()
     {
@@ -86,15 +88,18 @@
             if (neverInit)
             {
                 neverInit = false;
+
                 StartTimer();
                 genPace();
+                genDistance();
+
             }
 
         }
     }
 
     /*https://youtu.be/JoSwm6HAYgM referenced this video for this code*/
-    private void StartTimer()
+    private async void StartTimer()
     {
         var timer = new Timer(new TimerCallback(state => 
             {
@@ -119,7 +124,7 @@
         ), null, 0, 1000);
     }
 
-    private void genPace()
+    private async void genPace()
     {
 
         string target = Calendar_Data.runs[findIndex()].pace;
@@ -141,7 +146,7 @@
                         }
 
                         bool addNum = rand.Next(2) == 1;
-           
+
                         if(addNum && secondNum == 59)
                         {
                             firstNum++;
@@ -159,8 +164,8 @@
                         {
                             secondNum--;
                         }
-                       
-                       
+
+
 
 
                         if (secondNum < 10)
@@ -173,14 +178,28 @@
                         }
 
                     }
-                this.InvokeAsync(StateHasChanged);    
+                    this.InvokeAsync(StateHasChanged);    
                 }
-                
-                
+
+
             }
         ), null, 0, 150);
     }
 
+    public async void genDistance()
+    {
+        var timer = new Timer(new TimerCallback(state =>
+            {
+                if (!paused)
+                {
+                    double tempMin = min + sec / 60;
+                    distance = tempMin / pace;
+                    distance = Math.Round(distance, 2);
+                    this.InvokeAsync(StateHasChanged);
+                }
+            }
+        ), null, 0, 1000);
+    }
 
 
     public string formatTime(double min, double sec)
@@ -205,29 +224,8 @@
         return time;
     }
 
-    public void generatePace()
-    {
-        newPace = Calendar_Data.runs[findIndex()].pace;
-        int firstNum = 0;
-        int secondNum = 0;
 
-        Random rand = new Random();
-        int generate = rand.Next(0, 3);
-        if (generate == 2)
-        {
-            bool addOrSub = rand.Next(0, 2) > 0;
-            firstNum = rand.Next(4, 7);
-            secondNum = rand.Next(0, 60);
-            if(secondNum < 10)
-            {
-                newPace = firstNum.ToString() + ":" + "0" + secondNum.ToString();
-            }
-            else
-            {
-                newPace = firstNum.ToString() + ":" + secondNum.ToString();
-            }
-        
-        }
 
-    }
+
+    
 }
