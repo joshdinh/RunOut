@@ -39,9 +39,8 @@
                     <h2>Average Pace</h2>
                     <p class="target">Target: @Calendar_Data.runs[findIndex()].pace /km</p>
                 </div>
-                <p class="number">5:42</p>
-                <p class="km">/KM</p>
-
+                <p class="number">@newPace</p>
+                <p class="km">MIN/KM</p>
             </div>
             <button id="pause" @onclick="@toggleStart">@btnState</button>
             <a href="/runcomplete"><button id="finish">FINISH</button></a>
@@ -58,11 +57,15 @@
     public bool paused = false;
     public string btnState = "START";
 
-    double hr, min, sec;
+    public double hr, min, sec;
     string time = "00:00";
     string seconds;
     string minutes;
     bool neverInit = true;
+
+    double pace = 5.30;
+    string newPace = "0:00";
+
 
     public int findIndex()
     {
@@ -76,8 +79,6 @@
         if (paused)
         {
             btnState = "START";
-
-
         }
         else
         {
@@ -85,12 +86,14 @@
             if (neverInit)
             {
                 neverInit = false;
-                StartTimer(); 
+                StartTimer();
+                genPace();
             }
 
         }
     }
 
+    /*https://youtu.be/JoSwm6HAYgM referenced this video for this code*/
     private void StartTimer()
     {
         var timer = new Timer(new TimerCallback(state => 
@@ -109,12 +112,76 @@
                         hr++;
                     }
                     formatTime(min, sec);
+
                     this.InvokeAsync(StateHasChanged);  
                 }
-
             }
         ), null, 0, 1000);
     }
+
+    private void genPace()
+    {
+
+        string target = Calendar_Data.runs[findIndex()].pace;
+        string[] paceValues = target.Split(":");
+        int firstNum = 0;
+        int secondNum = 0;
+        Random rand = new Random();
+
+        var timer = new Timer(new TimerCallback(state => 
+            {
+                if (!paused)
+                {
+                    int generate = rand.Next(0, 3);
+                    if (generate == 2)
+                    {
+                        if (firstNum < Int32.Parse(paceValues[0]))
+                        {
+                            firstNum++;
+                        }
+
+                        bool addNum = rand.Next(2) == 1;
+           
+                        if(addNum && secondNum == 59)
+                        {
+                            firstNum++;
+                            secondNum = 0;
+                        }
+                        else if(!addNum && secondNum == 0){
+                            secondNum = 59;
+                            firstNum--;
+                        }
+                        else if (addNum)
+                        {
+                            secondNum++;
+                        }
+                        else if (!addNum)
+                        {
+                            secondNum--;
+                        }
+                       
+                       
+
+
+                        if (secondNum < 10)
+                        {
+                            newPace = firstNum.ToString() + ":" + "0" + secondNum.ToString();
+                        }
+                        else
+                        {
+                            newPace = firstNum.ToString() + ":" + secondNum.ToString();
+                        }
+
+                    }
+                this.InvokeAsync(StateHasChanged);    
+                }
+                
+                
+            }
+        ), null, 0, 150);
+    }
+
+
 
     public string formatTime(double min, double sec)
     {
@@ -134,11 +201,33 @@
         {
             minutes = min.ToString();
         }
-    time =  minutes+ ":"+ seconds;
+        time =  minutes+ ":"+ seconds;
         return time;
-    
-    
-        
     }
 
+    public void generatePace()
+    {
+        newPace = Calendar_Data.runs[findIndex()].pace;
+        int firstNum = 0;
+        int secondNum = 0;
+
+        Random rand = new Random();
+        int generate = rand.Next(0, 3);
+        if (generate == 2)
+        {
+            bool addOrSub = rand.Next(0, 2) > 0;
+            firstNum = rand.Next(4, 7);
+            secondNum = rand.Next(0, 60);
+            if(secondNum < 10)
+            {
+                newPace = firstNum.ToString() + ":" + "0" + secondNum.ToString();
+            }
+            else
+            {
+                newPace = firstNum.ToString() + ":" + secondNum.ToString();
+            }
+        
+        }
+
+    }
 }
