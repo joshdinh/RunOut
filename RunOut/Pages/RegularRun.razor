@@ -1,4 +1,8 @@
 ﻿@page "/regrun"
+@using System.Threading.Tasks;
+@using System;
+@using System.Diagnostics;
+@using System.Threading;
 
 <div class="content">
     <div class="nav">
@@ -6,8 +10,8 @@
         
         <p id="heading">Run</p>
         <div class="date">
-            <p id="number">4</p>
-            <button disabled id="weekday">Fri</button>
+            <p id="number">@Calendar_Data.runs[findIndex()].day</p>
+            <button disabled id="weekday">@Calendar_Data.runs[findIndex()].weekday</button>
         </div>
 
     </div>
@@ -16,7 +20,7 @@
         
 
         <div class="stopwatch">
-            <h1>12 : 29</h1>
+            <h1>@time</h1>
         </div>
 
         <div class="stats">
@@ -24,7 +28,7 @@
             <div id="distance">
                 <div>
                     <h2>Distance</h2>
-                    <p class="target">Target: 10km</p>
+                    <p class="target">Target: @Calendar_Data.runs[findIndex()].distance km</p>
                 </div>
                 <p class="number">5</p>
                 <p class="km">KM</p>
@@ -33,13 +37,13 @@
             <div id="pace">
                 <div>
                     <h2>Average Pace</h2>
-                    <p class="target">Target: 5:30/km</p>
+                    <p class="target">Target: @Calendar_Data.runs[findIndex()].pace /km</p>
                 </div>
                 <p class="number">5:42</p>
                 <p class="km">/KM</p>
 
             </div>
-            <button id="pause">PAUSE</button>
+            <button id="pause" @onclick="@toggleStart">@btnState</button>
             <a href="/runcomplete"><button id="finish">FINISH</button></a>
             
             
@@ -48,5 +52,85 @@
 </div>
 
 @code {
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
+
+    public bool paused = false;
+    public string btnState = "START";
+
+    double hr, min, sec;
+    string time = "00:00:00";
+    string seconds;
+    string minutes;
+
+    public int findIndex()
+    {
+        return Calendar_Data.runPointer;
+    }
+
+    public void toggleStart()
+    {
+        paused = !paused;
+
+        if (paused)
+        {
+            btnState = "START";
+
+        }
+        else
+        {
+            btnState = "PAUSE";
+
+            StartTimer();
+        }
+    }
+
+
+    private void StartTimer()
+    {
+        var timer = new Timer(new TimerCallback(state => 
+            {
+
+                sec++;
+
+
+
+                if(sec == 60)
+                {
+                    sec = 0;
+                    min++;
+
+                }
+                if(min == 60)
+                {
+                    min = 0;
+
+                    hr++;
+                }
+                if(sec < 10)
+                {
+                    seconds = "0" + sec.ToString();
+
+                }
+                else
+                {
+                    seconds = sec.ToString();
+                }
+                if(min < 10)
+                {
+                    minutes = "0" + min.ToString();
+                }
+                else
+                {
+                    minutes =  min.ToString();
+                }
+
+                time = "0" + hr.ToString() + ":" + minutes+ ":"+ seconds;
+                this.InvokeAsync(StateHasChanged);
+            }
+        ), null, 0, 1000);
+    }
+
+  
 
 }

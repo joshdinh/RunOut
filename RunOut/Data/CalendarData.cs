@@ -19,10 +19,10 @@ namespace RunOut.Data
 
 		public Calendar_Data()
         {
-            runs.Add(new Day("Dec", "Thu", 8, "Rest", nullInterval, 0, 0, true));
-            runs.Add(new Day("Dec", "Fri", 9, "Run", nullInterval, 1.5, 5.30, false));
-            runs.Add(new Day("Dec", "Sat", 10, "Rest", nullInterval, 0, 0, false));
-            runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2,2.5,3,3.5), 2.0, 5.30, false));
+            runs.Add(new Day("Dec", "Thu", 8, "Rest", nullInterval, 0, "0", true));
+            runs.Add(new Day("Dec", "Fri", 9, "Run", nullInterval, 1.5, "5:30", false));
+            runs.Add(new Day("Dec", "Sat", 10, "Rest", nullInterval, 0, "0", false));
+            runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2,2.5,3,3.5), 2.0, "5:30", false));
         }
 
         void generateRoutine(int month, int day)
@@ -55,10 +55,10 @@ namespace RunOut.Data
             public string runType;
             public Interval interval;
             public double distance;
-            public double pace;
+            public string pace;
             public bool active;
 
-            public Day(string month, string weekday, int day, string run, Interval interval, double distance, double pace, bool active)
+            public Day(string month, string weekday, int day, string run, Interval interval, double distance, string pace, bool active)
             {
                 this.month = month;
                 this.weekday = weekday;
