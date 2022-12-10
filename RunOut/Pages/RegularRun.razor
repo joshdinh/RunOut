@@ -43,7 +43,7 @@
                 <p class="km">MIN/KM</p>
             </div>
             <button id="pause" @onclick="@toggleStart">@btnState</button>
-            <a href="/runcomplete"><button id="finish">FINISH</button></a>
+            <a href="/runcomplete/@distance/@newPace/@time"><button id="finish">FINISH</button></a>
             
             
         </div>
@@ -53,6 +53,8 @@
 @code {
     [CascadingParameter]
     protected Calendar_Data? Calendar_Data { get; set; }
+
+
 
     public bool paused = false;
     public string btnState = "START";
@@ -67,6 +69,9 @@
     string newPace = "0:00";
 
     double distance = 0;
+
+
+
 
 
     public int findIndex()
@@ -91,7 +96,7 @@
 
                 StartTimer();
                 genPace();
-                genDistance();
+
 
             }
 
@@ -117,6 +122,9 @@
                         hr++;
                     }
                     formatTime(min, sec);
+                    double tempMin = min + sec / 60;
+                    distance = tempMin / pace;
+                    distance = Math.Round(distance, 2);
 
                     this.InvokeAsync(StateHasChanged);  
                 }
@@ -186,20 +194,6 @@
         ), null, 0, 150);
     }
 
-    public async void genDistance()
-    {
-        var timer = new Timer(new TimerCallback(state =>
-            {
-                if (!paused)
-                {
-                    double tempMin = min + sec / 60;
-                    distance = tempMin / pace;
-                    distance = Math.Round(distance, 2);
-                    this.InvokeAsync(StateHasChanged);
-                }
-            }
-        ), null, 0, 1000);
-    }
 
 
     public string formatTime(double min, double sec)

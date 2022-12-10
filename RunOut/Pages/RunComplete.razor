@@ -1,17 +1,26 @@
 ﻿@layout MainLayout
-@page "/runcomplete"
+@page "/runcomplete/{Distance}/{Pace}/{Time}"
 
 <div class="content">
     <h1>RUN <br /> COMPLETE</h1>
     <div class="runDetails">
-        <p>Distance: 8km</p>
-        <p>Pace: 6:40 min/km</p>
+        <p>Distance: @Distance km</p>
+        <p>Pace: @Pace min/km</p>
+        <p>Time: @Time </p>
         <div class="btn">
-        <button id="resume">RESUME</button></div>
+            <a href="/dashboard"><button id="return">RETURN</button></a>
+        </div>
     </div>
 </div>
 
 
 @code {
+    [Parameter]
+    public string ? Distance { get; set; }
 
+    [Parameter]
+    public string ? Pace { get; set; }
+
+    [Parameter]
+    public string ? Time { get; set; }
 }
