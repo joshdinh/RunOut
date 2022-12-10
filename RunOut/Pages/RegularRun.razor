@@ -59,9 +59,10 @@
     public string btnState = "START";
 
     double hr, min, sec;
-    string time = "00:00:00";
+    string time = "00:00";
     string seconds;
     string minutes;
+    bool neverInit = true;
 
     public int findIndex()
     {
@@ -76,61 +77,68 @@
         {
             btnState = "START";
 
+
         }
         else
         {
             btnState = "PAUSE";
+            if (neverInit)
+            {
+                neverInit = false;
+                StartTimer(); 
+            }
 
-            StartTimer();
         }
     }
-
 
     private void StartTimer()
     {
         var timer = new Timer(new TimerCallback(state => 
             {
-
-                sec++;
-
-
-
-                if(sec == 60)
+                if (!paused)
                 {
-                    sec = 0;
-                    min++;
-
-                }
-                if(min == 60)
-                {
-                    min = 0;
-
-                    hr++;
-                }
-                if(sec < 10)
-                {
-                    seconds = "0" + sec.ToString();
-
-                }
-                else
-                {
-                    seconds = sec.ToString();
-                }
-                if(min < 10)
-                {
-                    minutes = "0" + min.ToString();
-                }
-                else
-                {
-                    minutes =  min.ToString();
+                    sec++;
+                    if(sec == 60)
+                    {
+                        sec = 0;
+                        min++;
+                    }
+                    if(min == 60)
+                    {
+                        min = 0;
+                        hr++;
+                    }
+                    formatTime(min, sec);
+                    this.InvokeAsync(StateHasChanged);  
                 }
 
-                time = "0" + hr.ToString() + ":" + minutes+ ":"+ seconds;
-                this.InvokeAsync(StateHasChanged);
             }
         ), null, 0, 1000);
     }
 
-  
+    public string formatTime(double min, double sec)
+    {
+        if (sec < 10)
+        {
+            seconds = "0" + sec.ToString();
+        }
+        else
+        {
+            seconds = sec.ToString();
+        }
+        if (min < 10)
+        {
+            minutes = "0" + min.ToString();
+        }
+        else
+        {
+            minutes = min.ToString();
+        }
+    time =  minutes+ ":"+ seconds;
+        return time;
+    
+    
+        
+    }
 
 }
