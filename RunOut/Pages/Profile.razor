@@ -61,11 +61,11 @@
 
 @code {
     string name;
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
 
     protected override void OnInitialized()
     {
-        UserData data;
-        Database.userData.TryGetValue(Database.currentUser, out data);
-        name = data.firstName + " " + data.lastName;
+        name = Calendar_Data.currentName;
     }
 }

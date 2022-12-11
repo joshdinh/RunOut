@@ -29,18 +29,7 @@
         <p>WEEK X</p>
 
         <div class="grid-container">
-            <div class="grid-item">
-                @Calendar_Data.runs[0].runType
-                <button>START</button>
-            </div>
-
-            <div class="grid-item">
-                @Calendar_Data.runs[1].runType
-            </div>
-
-            <div class="grid-item">@Calendar_Data.runs[2].runType</div>
-
-
+     
             <div class="grid-item"></div>
 
 
@@ -68,8 +57,6 @@
     protected Calendar_Data? Calendar_Data { get; set; }
 
 
-
-    string marathonName;
     //int currentWeek;
     int marathonMonth;
     int marathonDay;
@@ -77,10 +64,11 @@
 
     private string raceName { get; set; }
 
-
     protected override void OnInitialized()
     {
-        UserData data;
+
+        raceName = Calendar_Data.accounts[Calendar_Data.accountNumber].runName;
+         /* UserData data;
         if (Database.userData.TryGetValue(Database.currentUser, out data)){
             JSRuntime.InvokeVoidAsync("console.log", "marathonName: ", data.marathonName);
             JSRuntime.InvokeVoidAsync("console.log", "marathonRaceMonth: ", data.marathonRaceMonth);
@@ -98,7 +86,7 @@
             //int daysLeft = timeLeft.Days;
         };
         
-
+*/
 
 
     }

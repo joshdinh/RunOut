@@ -2,53 +2,105 @@
 @layout NewProgramLayout
 
 <div class="content">
-    <div class="back">
-        <form>
-            <p>Race Name</p>
-            <input type="text" @bind="raceName" />
-        </form>
-        <div class="newButtons">
-            <button id="date">
-                <p>Race Date</p>
-                <DatePicker></DatePicker>
-            </button>
+	<div class="back">
+		<form>
+			<p>Race Name</p>
+			<input type="text" @bind="raceName" />
+		</form>
+		<div class="newButtons">
+			<button id="date">
+				<p>Race Date</p>
+				<select @bind="Day">
+					@for (int i = 1; i <= 31; i++)
+					{
+						<option>@i</option>
+					}
 
-            <button id="distance">
-                <p>Race Distance (KM)</p>
-                <DistancePicker></DistancePicker>
-            </button>
+				</select>
+				<select @bind="Month">
+					@for (int i = 1; i <= 12; i++)
+					{
+						<option value="@i">@Months[i-1]</option>
+					}
+				</select>
+				<select @bind="Year">
+					@for (int i = DateTime.Now.Year;
+							i <= DateTime.Now.Year + 5; i++)
+					{
+						<option>@i</option>
+					}
+				</select>
+			</button>
 
-            <button id="pace">
-                <p>Target Pace (Min/KM)</p>
-                <PacePicker></PacePicker>
-            </button>
-        </div>
-        <div class="conButton">
-            <a href="/dashboard" class="dashboard">
-                <conButton id="confirm">
-                    <p>Confirm Information</p>
-                </conButton>
-            </a>
-        </div>
-    </div>
+			<button id="distance">
+				<p>Race Distance (KM)</p>
+
+				<select @bind="Distance">
+					@for (int i = 5; i <= 30; i += 5)
+					{
+						<option>@i</option>
+					}
+
+				</select>
+			</button>
+
+			<button id="pace">
+				<p>Target Pace (Min/KM)</p>
+				<select @bind="Pace">
+					@for (int i = 4; i <= 15; i++)
+					{
+						<option>@i</option>
+					}
+
+				</select>
+			</button>
+		</div>
+		<div class="conButton">
+			<a href="/dashboard" onclick="@FormSubmitted" class="dashboard">
+				<conButton id="confirm">
+					<p>Confirm Information</p>
+				</conButton>
+			</a>
+		</div>
+	</div>
 </div>
 
 @code {
-    @inject IJSRuntime JSRuntime
-    private string raceName ="";
-    private UserData currentValue;
-    UserData data;
+	@inject IJSRuntime JSRuntime
+	private string raceName = "";
+	private UserData currentValue;
+	UserData data;
 
-    private void FormSubmitted()
-    {
-        
-        if (Database.userData.TryGetValue(Database.currentUser, out currentValue))
-        {
-            currentValue.marathonName = raceName;
-            JSRuntime.InvokeVoidAsync("console.log", "raceName: ", data.marathonName);
-            Database.userData[Database.currentUser] = currentValue;
-        }
+	public int Day { get; set; }
+	public int Month { get; set; }
+	public int Year { get; set; }
+	public string Distance { get; set; }
+	public string Pace { get; set; }
+	public string[] Months { get; set; } = {
+	   "January", "February", "March",
+	   "April", "May", "June", "July",
+	   "August", "September", "October",
+	   "November", "December" };
 
-    }
+	[CascadingParameter]
+	protected Calendar_Data? Calendar_Data { get; set; }
 
+	public void FormSubmitted()
+	{
+		Calendar_Data.Account temp = Calendar_Data.accounts[Calendar_Data.accountNumber];
+		temp.runName = raceName;
+		temp.raceDay = Day;
+		temp.raceMonth = Month;
+		temp.raceYear = Year;
+		temp.raceDistance = Distance;
+		temp.targetPace = Pace;
+		Calendar_Data.accounts[Calendar_Data.accountNumber] = new Calendar_Data.Account(temp.user,temp.password,temp.name, temp.runName,temp.raceDay, temp.raceMonth, temp.raceYear,temp.raceDistance, temp.targetPace);
+		JSRuntime.InvokeVoidAsync("console.log", ": ", Calendar_Data.accounts[Calendar_Data.accountNumber].runName);
+		JSRuntime.InvokeVoidAsync("console.log", ": ", Calendar_Data.accounts[Calendar_Data.accountNumber].raceDay);
+	}
 }
+
+
+
+
+
