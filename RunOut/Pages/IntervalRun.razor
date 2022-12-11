@@ -44,7 +44,7 @@
             </div>
        
             <button id="start" @onclick=@toggleStart>@btnState</button>
-            <a href="/runcomplete"><button id="finish">FINISH</button></a>
+            <a href="/runcomplete/@distance/@newPace/@formattedTime"><button id="finish">FINISH</button></a>
         </div>
     </div>
  </div>
@@ -63,7 +63,7 @@
     public string btnState = "START";
 
     public double hr, min, sec = 0;
-    public int elapsedTime = 0;
+    public int accTime = 0;
     string time = "00:00";
     string formattedTime = "0 min 0 sec";
 
@@ -193,11 +193,13 @@
         bool intervalsFinished = false;
         double tempDistance = 0.0;
         double sumDistance = 0.0;
+        int elapsedTime = 0;
         var timer = new Timer(new TimerCallback(state =>
             {
                 if (!paused && !intervalsFinished)
                 {
                     elapsedTime++;
+                    accTime++;
                     if (min == 0 && sec == 0 && intervalCount == 8)
                     {
                         intervalsFinished = true;
@@ -221,6 +223,9 @@
                     }       
 
                     formatTime(min, sec);
+
+                    formattedTime = Math.Floor(accTime / 60.0).ToString() + "min " + accTime % 60 + "sec";
+        
 
                     double tempMin = elapsedTime / 60;
                     double tempDistance = tempMin / pace;
