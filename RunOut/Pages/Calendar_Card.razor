@@ -2,14 +2,40 @@
 @layout MainLayout
 
 <div class="card">
-    <img src="Images/@path" class="cardContainer" />
-    <h3 class="title"> @title</h3>
-    <p class="distance">@distance km</p>
-    <p class="pace">@pace</p>
+    @if (active == 1)
+    {
+        <img src="Images/StartRunCard.png" class="cardContainer" />
+        <a class="startRun" href="/@title" @onclick = "startRun">
+        </a>
+    }
+    @if(active == 0)
+    {
+        <img src="Images/InactiveRunCard.png" class="cardContainer" />
+    }
 
-    <p class="day">@day</p>
-    <p class="month"> @month</p>
+    @if(active == 2)
+    {
+        <img src="Images/ReviewRunCard.png" class="cardContainer" />
+        <a class="startRun" href="/review">
+        </a>
+    }
 
+        <h3 class="title"> @title</h3>
+        <p class="distance">@distance km</p>
+        <p class="pace">@pace</p>
+
+       <p class="day">@day</p>
+        <p class="month"> @month</p>
+
+        <button class="options" @onclick = "Switch"/>
+
+    @if(_display)
+    {
+     <img src="Images/Dropdown Selection.png" class="optionModal" />
+     <button class="restOption" @onclick = "restOption"/>
+     <button class="intervalOption" @onclick = "intervalOption"/>
+     <button class="longOption" @onclick = "longOption"/>
+    }
 </div>
 @code {
     [Parameter]
@@ -23,29 +49,41 @@
     [Parameter]
     public int day { get; set; } = 1;
     [Parameter]
-    public bool active { get; set; } = false;
+    public int active { get; set; } = 0;
+    [Parameter]
+    public int listPointer { get; set; } = 0; 
 
-    private string path;
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
 
-    public Calendar_Card()
+    private bool _display = false;
+
+    private void startRun()
     {
-        if (active == true)
+        @if (title == "Rest")
         {
-            path = "StartRunCard.png";
-        }
-        else
-        {
-            path = "InactiveRunCard.png";
+            active = 1;
+            Calendar_Data.runs[listPointer] = new Calendar_Data.Day(month, "Sun", day, title, new Calendar_Data.Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 2);
         }
     }
 
-    public Calendar_Card(string title)
+    private void restOption()
     {
-        this.title = title;
+        title = "Rest";
+        Calendar_Data.runs[listPointer] = new Calendar_Data.Day(month, "Sun", day, title, new Calendar_Data.Interval(2, 2.5, 3, 3.5), 2.0, "5:30", active);
     }
 
-    public void setActiveCard()
+    private void intervalOption()
     {
-        path = "StartRunCard.png";
+        title = "Interval";
+        Calendar_Data.runs[listPointer] = new Calendar_Data.Day(month, "Sun", day, title, new Calendar_Data.Interval(2, 2.5, 3, 3.5), 2.0, "5:30", active);
     }
+
+    private void longOption()
+    {
+        title = "LongRun";
+        Calendar_Data.runs[listPointer] = new Calendar_Data.Day(month, "Sun", day, title, new Calendar_Data.Interval(2, 2.5, 3, 3.5), 2.0, "5:30", active);
+    }
+    private void Switch(MouseEventArgs e)
+    => _display = !_display;
 }
