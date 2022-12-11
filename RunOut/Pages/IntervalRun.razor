@@ -2,11 +2,12 @@
 
 <div class="content">
     <div class="nav">
-        <button id="back"> &#10094;</button>
-        <p id="heading">Walk 1/8</p>
+        <a href="/interval"><button id="back"> &#10094;</button></a>
+
+        <p id="heading">@currentInterval()</p>
         <div class="date">
-            <p id="number">3</p>
-            <button disabled id="weekday">Thu</button>
+            <p id="number">@Calendar_Data.runs[findIndex()].day</p>
+            <button disabled id="weekday">@Calendar_Data.runs[findIndex()].weekday</button>
         </div>
 
     </div>
@@ -14,7 +15,7 @@
     <div class="belowNav">
         <div class="nextNotif">
             <p>Next Up</p>
-            <h1>RUN</h1>
+            <h1>@nextInterval()</h1>
         </div>
 
         <div class="stopwatch">
@@ -26,7 +27,7 @@
             <div id="distance">
                <div>
                     <h2>Distance</h2>
-                    <p class="target">Target: 10km</p>
+                    <p class="target">Target: @Calendar_Data.runs[findIndex()].distance km</p>
                 </div>
                 <p class="number">5</p>
                 <p class="km">KM</p>
@@ -35,7 +36,7 @@
             <div id="pace">
                 <div>
                     <h2>Average Pace</h2>
-                    <p class="target">Target: 5:30/km</p>
+                    <p class="target">Target: @Calendar_Data.runs[findIndex()].pace /km</p>
                 </div>
                 <p class="number">6:09</p>
                 <p class="km">/KM</p>
@@ -50,5 +51,45 @@
 
 
 @code {
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
+
+    int intervalCount = 1;
+
+    public int findIndex()
+    {
+        return Calendar_Data.runPointer;
+    }
+
+    public string currentInterval()
+    {
+        string interval;
+        if (intervalCount % 2 == 0)
+        {
+            interval = "Run";
+        }
+        else
+        {
+            interval = "Walk";
+        }
+
+        interval = interval + " " + intervalCount + "/8";
+
+        return interval;
+    }
+
+    public string nextInterval()
+    {
+        string intervalType;
+        if(intervalCount % 2 == 0)
+        {
+            intervalType = "WALK";   
+        }
+        else
+        {
+            intervalType = "RUN";
+        }
+        return intervalType;
+    }
 
 }

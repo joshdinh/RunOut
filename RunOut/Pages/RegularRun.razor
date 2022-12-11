@@ -1,12 +1,17 @@
-﻿@page "/regrun"
+﻿@page "/longrun"
+@using System.Threading.Tasks;
+@using System;
+@using System.Diagnostics;
+@using System.Threading;
 
 <div class="content">
     <div class="nav">
-        <button id="back"> &#10094;</button>
+        <a href="/calendar"><button id="back"> &#10094;</button></a>
+        
         <p id="heading">Run</p>
         <div class="date">
-            <p id="number">4</p>
-            <button disabled id="weekday">Fri</button>
+            <p id="number">@Calendar_Data.runs[findIndex()].day</p>
+            <button disabled id="weekday">@Calendar_Data.runs[findIndex()].weekday</button>
         </div>
 
     </div>
@@ -15,7 +20,7 @@
         
 
         <div class="stopwatch">
-            <h1>12 : 29</h1>
+            <h1>@time</h1>
         </div>
 
         <div class="stats">
@@ -23,23 +28,22 @@
             <div id="distance">
                 <div>
                     <h2>Distance</h2>
-                    <p class="target">Target: 10km</p>
+                    <p class="target">Target: @Calendar_Data.runs[findIndex()].distance km</p>
                 </div>
-                <p class="number">5</p>
+                <p class="number">@distance</p>
                 <p class="km">KM</p>
 
             </div>
             <div id="pace">
                 <div>
                     <h2>Average Pace</h2>
-                    <p class="target">Target: 5:30/km</p>
+                    <p class="target">Target: @Calendar_Data.runs[findIndex()].pace /km</p>
                 </div>
-                <p class="number">5:42</p>
-                <p class="km">/KM</p>
-
+                <p class="number">@newPace</p>
+                <p class="km">MIN/KM</p>
             </div>
-            <button id="pause">PAUSE</button>
-            <a href="/runcomplete"><button id="finish">FINISH</button></a>
+            <button id="pause" @onclick="@toggleStart">@btnState</button>
+            <a href="/runcomplete/@distance/@newPace/@time"><button id="finish">FINISH</button></a>
             
             
         </div>
@@ -47,5 +51,175 @@
 </div>
 
 @code {
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
 
+
+
+    public bool paused = false;
+    public string btnState = "START";
+
+    public double hr, min, sec;
+    string time = "00:00";
+    string seconds;
+    string minutes;
+    bool neverInit = true;
+
+    double pace = 5.30;
+    string newPace = "0:00";
+
+    double distance = 0;
+
+
+
+
+
+    public int findIndex()
+    {
+        return Calendar_Data.runPointer;
+    }
+
+    public void toggleStart()
+    {
+        paused = !paused;
+
+        if (paused)
+        {
+            btnState = "START";
+        }
+        else
+        {
+            btnState = "PAUSE";
+            if (neverInit)
+            {
+                neverInit = false;
+
+                StartTimer();
+                genPace();
+
+
+            }
+
+        }
+    }
+
+    /*https://youtu.be/JoSwm6HAYgM referenced this video for this code*/
+    private async void StartTimer()
+    {
+        var timer = new Timer(new TimerCallback(state => 
+            {
+                if (!paused)
+                {
+                    sec++;
+                    if(sec == 60)
+                    {
+                        sec = 0;
+                        min++;
+                    }
+                    if(min == 60)
+                    {
+                        min = 0;
+                        hr++;
+                    }
+                    formatTime(min, sec);
+                    double tempMin = min + sec / 60;
+                    distance = tempMin / pace;
+                    distance = Math.Round(distance, 2);
+
+                    this.InvokeAsync(StateHasChanged);  
+                }
+            }
+        ), null, 0, 1000);
+    }
+
+    private async void genPace()
+    {
+
+        string target = Calendar_Data.runs[findIndex()].pace;
+        string[] paceValues = target.Split(":");
+        int firstNum = 0;
+        int secondNum = 0;
+        Random rand = new Random();
+
+        var timer = new Timer(new TimerCallback(state => 
+            {
+                if (!paused)
+                {
+                    int generate = rand.Next(0, 3);
+                    if (generate == 2)
+                    {
+                        if (firstNum < Int32.Parse(paceValues[0]))
+                        {
+                            firstNum++;
+                        }
+
+                        bool addNum = rand.Next(2) == 1;
+
+                        if(addNum && secondNum == 59)
+                        {
+                            firstNum++;
+                            secondNum = 0;
+                        }
+                        else if(!addNum && secondNum == 0){
+                            secondNum = 59;
+                            firstNum--;
+                        }
+                        else if (addNum)
+                        {
+                            secondNum++;
+                        }
+                        else if (!addNum)
+                        {
+                            secondNum--;
+                        }
+
+
+
+
+                        if (secondNum < 10)
+                        {
+                            newPace = firstNum.ToString() + ":" + "0" + secondNum.ToString();
+                        }
+                        else
+                        {
+                            newPace = firstNum.ToString() + ":" + secondNum.ToString();
+                        }
+
+                    }
+                    this.InvokeAsync(StateHasChanged);    
+                }
+
+
+            }
+        ), null, 0, 150);
+    }
+
+
+
+    public string formatTime(double min, double sec)
+    {
+        if (sec < 10)
+        {
+            seconds = "0" + sec.ToString();
+        }
+        else
+        {
+            seconds = sec.ToString();
+        }
+        if (min < 10)
+        {
+            minutes = "0" + min.ToString();
+        }
+        else
+        {
+            minutes = min.ToString();
+        }
+        time =  minutes+ ":"+ seconds;
+        return time;
+    }
+
+
+
+
+    
 }
