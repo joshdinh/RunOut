@@ -52,7 +52,8 @@
         JSRuntime.InvokeVoidAsync("console.log", "Password: ", password);
         Database.users.Add(username, password);
         // Database.userData.Add(username, new UserData());
-
+       
+        /*
         string result;
         if (Database.users.TryGetValue(username, out result))
         {
@@ -63,7 +64,7 @@
         {
             JSRuntime.InvokeVoidAsync("console.log", "Insert failed");
         }
-
+        */
         NavManager.NavigateTo("/noprogram");
     }
 }

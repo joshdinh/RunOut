@@ -29,22 +29,22 @@ form {
     margin-left: 20px;
 }
 
-form label {
-    display: flex;
-    margin-top: 15px;
-    font-size: 16px;
-    color: white;
-}
+    form label {
+        display: flex;
+        margin-top: 15px;
+        font-size: 16px;
+        color: white;
+    }
 
-form input {
-    width: 100%;
-    padding: 5px;
-    border: none;
-    border-radius: 6px;
-    outline: none;
-    opacity: 0.4;
-    filter: alpha(opacity=40);
-}
+    form input {
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+        opacity: 0.4;
+        filter: alpha(opacity=40);
+    }
 
 input[type="button"] {
     width: 320px;

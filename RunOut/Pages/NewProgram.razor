@@ -3,34 +3,38 @@
 
 <div class="content">
     <div class="back">
+        <form>
+            <p>Race Name</p>
+            <input type="text" @bind="raceName" />
+        </form>
         <div class="newButtons">
-            <a href="/racedate">
-                <button id="date">
-                    <img src="Images/calendar.png" id="iconPic">
-                    <p>Race Date</p>
-                </button>
-            </a>
+            <button id="date">
+                <p>Race Date</p>
+                <DatePicker></DatePicker>
+            </button>
+            
+            <button id="distance">
+                <p>Race Distance (KM)</p>
+                <DistancePicker></DistancePicker>                 
+            </button>
 
-            <a href="/racedistance">
-                <button id="distance">
-                    <img src="Images/distance.png" id="iconPic">
-                    <p>Race Distance</p>
-                </button>
-            </a>
-
-            <a href="/targetpace">
-                <button id="pace">
-                    <img src="Images/pace.png" id="iconPic">
-                    <p>Target Pace</p>
-                </button>
-            </a>
+            <button id="pace">
+                <p>Target Pace (Min/KM)</p>
+                <PacePicker></PacePicker>
+            </button>
         </div>
         <div class="conButton">
-            <b href="/confirm">
+            <a href="/dashboard" class="dashboard">
                 <conButton id="confirm">
                     <p>Confirm Information</p>
                 </conButton>
-            </b>
+            </a>
         </div>
     </div>
 </div>
+
+@code {
+    
+    string raceName;
+
+}
