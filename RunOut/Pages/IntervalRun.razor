@@ -19,7 +19,7 @@
         </div>
 
         <div class="stopwatch">
-            <h1>00 : 49</h1>
+            <h1>@time</h1>
         </div>
 
         <div class="stats">
@@ -43,7 +43,7 @@
                 
             </div>
        
-            <button id="start">START</button>
+            <button id="start" @onclick=@toggleStart>@btnState</button>
             <a href="/runcomplete"><button id="finish">FINISH</button></a>
         </div>
     </div>
@@ -54,11 +54,47 @@
     [CascadingParameter]
     protected Calendar_Data? Calendar_Data { get; set; }
 
+
+
     int intervalCount = 1;
+    double intervalTime = 0.0;
+
+    public bool paused = false;
+    public string btnState = "START";
+
+    public double hr, min, sec = 0;
+    string time = "00:00";
+    string formattedTime = "0 min 0 sec";
+    string seconds;
+    string minutes;
+    bool neverInit = true;
+
 
     public int findIndex()
     {
         return Calendar_Data.runPointer;
+    }
+
+    public double intervalInfo(int count)
+    {
+        if (count == 1 || count == 2)
+        {
+            return Calendar_Data.runs[findIndex()].interval.interval1;
+        }
+        if (count == 3 || count == 4)
+        {
+            return Calendar_Data.runs[findIndex()].interval.interval2;
+        }
+        if (count == 5 || count == 6)
+        {
+            return Calendar_Data.runs[findIndex()].interval.interval3;
+        }
+        if (count == 7 || count == 8)
+        {
+            return Calendar_Data.runs[findIndex()].interval.interval4;
+        }
+
+        return 0.0;
     }
 
     public string currentInterval()
@@ -91,5 +127,107 @@
         }
         return intervalType;
     }
+
+    public void toggleStart()
+    {
+        paused = !paused;
+        if (paused)
+        {
+            btnState = "START";
+        }
+        else
+        {
+            btnState = "PAUSE";
+            if (neverInit)
+            {
+                neverInit = false;
+                findMinSec();
+                StartTimer();
+            }
+        }
+    }
+
+    public void findMinSec()
+    {
+        double intervalDetails = intervalInfo(intervalCount);
+        TimeSpan interval = TimeSpan.FromMinutes(intervalDetails);
+        sec = interval.TotalSeconds;
+        Console.WriteLine(sec);
+
+        if (sec % 60 != 0)
+        {
+            min = Math.Floor(sec / 60);
+            sec = sec % 60;
+        }
+        else if(sec % 60 == 0)
+        {
+
+            min = sec / 60;
+            sec = 0;
+        }
+    }
+
+
+    /*https://youtu.be/JoSwm6HAYgM referenced this video for this code*/
+    private void StartTimer()
+    {
+        bool intervalsFinished = false;
+        var timer = new Timer(new TimerCallback(state =>
+            {
+                if (!paused && !intervalsFinished)
+                {
+                    if (min == 0 && sec == 0 && intervalCount == 8)
+                    {
+                        intervalsFinished = true;
+                    }
+                if (min == 0 && sec == 0 &&!intervalsFinished)
+                    {
+                      intervalCount++;     
+                      findMinSec(); 
+                 
+                    }
+                    if(sec == 0 && !intervalsFinished)
+                    {
+                        min--;
+                        sec = 60;
+                    }
+                    if(sec > 0)
+                    {
+                        sec--;
+                    }
+                    formatTime(min, sec);
+                    this.InvokeAsync(StateHasChanged);
+                }
+          
+            }
+        ), null, 0, 100);
+    }
+
+    public string formatTime(double min, double sec)
+    {
+        if (sec < 10)
+        {
+            seconds = "0" + sec.ToString();
+        }
+        else
+        {
+            seconds = sec.ToString();
+        }
+        if (min < 10)
+        {
+            minutes = "0" + min.ToString();
+        }
+        else
+        {
+            minutes = min.ToString();
+        }
+        time = minutes + ":" + seconds;
+        return time;
+    }
+
+
+
+
+
 
 }

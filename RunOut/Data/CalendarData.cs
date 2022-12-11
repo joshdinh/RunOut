@@ -15,14 +15,14 @@ namespace RunOut.Data
         public int raceDay = -1;
         public int raceMonth = -1;
 
-        public Interval nullInterval = new Interval(0, 0, 0, 0);
+        public Interval nullInterval = new Interval(0.0, 0.0, 0.0, 0.0);
 
 		public Calendar_Data()
         {
             runs.Add(new Day("Dec", "Thu", 8, "Rest", nullInterval, 0, "0", true));
             runs.Add(new Day("Dec", "Fri", 9, "Run", nullInterval, 1.5, "5:30", false));
             runs.Add(new Day("Dec", "Sat", 10, "Rest", nullInterval, 0, "0", false));
-            runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2,2.5,3,3.5), 2.0, "5:30", false));
+            runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2.0,2.5,3.0,3.5), 2.0, "5:30", false));
         }
 
         void generateRoutine(int month, int day)
