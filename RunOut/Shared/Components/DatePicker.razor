@@ -21,6 +21,7 @@
 </select>
 
 @code {
+    @inject IJSRuntime JSRuntime
     public int Day { get; set; }
     public int Month { get; set; }
     public int Year { get; set; }
@@ -30,4 +31,23 @@
        "April", "May", "June", "July",
        "August", "September", "October",
        "November", "December" };
+    UserData data;
+
+    private void FormSubmitted()
+    {
+        UserData currentValue;
+        if (Database.userData.TryGetValue(Database.currentUser, out currentValue))
+        {
+            currentValue.marathonRaceDay = Day;
+            currentValue.marathonRaceMonth = Month;
+            currentValue.marathonRaceYear = Year;
+            JSRuntime.InvokeVoidAsync("console.log", "marathonName: ", data.marathonName);
+            JSRuntime.InvokeVoidAsync("console.log", "marathonRaceMonth: ", data.marathonRaceMonth);
+            JSRuntime.InvokeVoidAsync("console.log", "marathonRaceDay: ", data.marathonRaceDay);
+
+            Database.userData[Database.currentUser] = currentValue;
+        }
+
+    }
+
 }

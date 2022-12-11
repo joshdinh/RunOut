@@ -12,10 +12,10 @@
                 <p>Race Date</p>
                 <DatePicker></DatePicker>
             </button>
-            
+
             <button id="distance">
                 <p>Race Distance (KM)</p>
-                <DistancePicker></DistancePicker>                 
+                <DistancePicker></DistancePicker>
             </button>
 
             <button id="pace">
@@ -34,7 +34,21 @@
 </div>
 
 @code {
-    
-    string raceName;
+    @inject IJSRuntime JSRuntime
+    private string raceName ="";
+    private UserData currentValue;
+    UserData data;
+
+    private void FormSubmitted()
+    {
+        
+        if (Database.userData.TryGetValue(Database.currentUser, out currentValue))
+        {
+            currentValue.marathonName = raceName;
+            JSRuntime.InvokeVoidAsync("console.log", "raceName: ", data.marathonName);
+            Database.userData[Database.currentUser] = currentValue;
+        }
+
+    }
 
 }

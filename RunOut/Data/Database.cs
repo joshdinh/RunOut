@@ -12,9 +12,9 @@
 
         public static void SeedDictionaries()
         {
-            Database.users.Add("josh", "password");
+            //Database.users.Add("josh", "password");
 
-            Database.userData.Add("josh", new UserData("Josh", "Dinh", "Oct. 29", "Dash of Doom", 3, 2, new WorkoutSet()));
+            //Database.userData.Add("josh", new UserData("Josh", "Dinh", "Oct. 29", "Dash of Doom", 3, 2, new WorkoutSet()));
         }
     }
 
