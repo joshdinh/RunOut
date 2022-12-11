@@ -71,10 +71,6 @@
 
     double distance = 0;
 
-
-
-
-
     public int findIndex()
     {
         return Calendar_Data.runPointer;
@@ -125,7 +121,7 @@
                     formatTime(min, sec);
                     formattedTime = min.ToString() + "min " + sec.ToString() + "sec";
             
-                    double tempMin = min + sec / 60;
+                    double tempMin = min + (sec / 60);
                     distance = tempMin / pace;
                     distance = Math.Round(distance, 2);
 
@@ -194,7 +190,7 @@
 
 
             }
-        ), null, 0, 150);
+        ), null, 0, 250);
     }
 
 

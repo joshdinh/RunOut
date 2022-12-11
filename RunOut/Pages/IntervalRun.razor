@@ -29,7 +29,7 @@
                     <h2>Distance</h2>
                     <p class="target">Target: @Calendar_Data.runs[findIndex()].distance km</p>
                 </div>
-                <p class="number">5</p>
+                <p class="number">@distance</p>
                 <p class="km">KM</p>
                
             </div>
@@ -38,7 +38,7 @@
                     <h2>Average Pace</h2>
                     <p class="target">Target: @Calendar_Data.runs[findIndex()].pace /km</p>
                 </div>
-                <p class="number">6:09</p>
+                <p class="number">@newPace</p>
                 <p class="km">/KM</p>
                 
             </div>
@@ -63,11 +63,16 @@
     public string btnState = "START";
 
     public double hr, min, sec = 0;
+    public int elapsedTime = 0;
     string time = "00:00";
     string formattedTime = "0 min 0 sec";
-    string seconds;
-    string minutes;
+
     bool neverInit = true;
+
+    double distance = 0;
+    double pace = 0;
+    string newPace = "0:00";
+
 
 
     public int findIndex()
@@ -128,6 +133,18 @@
         return intervalType;
     }
 
+    public void setPace()
+    {
+        if(intervalCount % 2 == 0)
+        {
+            pace = 5.30;
+        }
+        else
+        {
+            pace = 9.00;
+        }
+    }
+
     public void toggleStart()
     {
         paused = !paused;
@@ -141,6 +158,8 @@
             if (neverInit)
             {
                 neverInit = false;
+                setPace();
+                genPace();
                 findMinSec();
                 StartTimer();
             }
@@ -152,7 +171,7 @@
         double intervalDetails = intervalInfo(intervalCount);
         TimeSpan interval = TimeSpan.FromMinutes(intervalDetails);
         sec = interval.TotalSeconds;
-        Console.WriteLine(sec);
+
 
         if (sec % 60 != 0)
         {
@@ -172,19 +191,24 @@
     private void StartTimer()
     {
         bool intervalsFinished = false;
+        double tempDistance = 0.0;
+        double sumDistance = 0.0;
         var timer = new Timer(new TimerCallback(state =>
             {
                 if (!paused && !intervalsFinished)
                 {
+                    elapsedTime++;
                     if (min == 0 && sec == 0 && intervalCount == 8)
                     {
                         intervalsFinished = true;
                     }
-                if (min == 0 && sec == 0 &&!intervalsFinished)
+                    if (min == 0 && sec == 0 &&!intervalsFinished)
                     {
-                      intervalCount++;     
-                      findMinSec(); 
-                 
+                        intervalCount++;
+                        sumDistance = sumDistance + (elapsedTime / 60) / pace;
+                        elapsedTime = 0;
+                        setPace();
+                        findMinSec();
                     }
                     if(sec == 0 && !intervalsFinished)
                     {
@@ -194,17 +218,27 @@
                     if(sec > 0)
                     {
                         sec--;
-                    }
+                    }       
+
                     formatTime(min, sec);
+
+                    double tempMin = elapsedTime / 60;
+                    double tempDistance = tempMin / pace;
+                    distance = sumDistance + tempDistance;
+                    distance = Math.Round(distance, 2);
                     this.InvokeAsync(StateHasChanged);
                 }
-          
+
             }
-        ), null, 0, 100);
+        ), null, 0, 1000);
     }
 
     public string formatTime(double min, double sec)
+
+
     {
+        string minutes;
+        string seconds;
         if (sec < 10)
         {
             seconds = "0" + sec.ToString();
@@ -223,6 +257,75 @@
         }
         time = minutes + ":" + seconds;
         return time;
+    }
+
+    private async void genPace()
+    {
+
+        int firstNum = 0;
+        int secondNum = 27;
+        Random rand = new Random();
+
+        int runPaceFirstNum = 5; //can grab dynamically
+        int walkPaceFirstNum = 9; // can grab dynamically
+        int compareFirst = 0;
+
+        var timer = new Timer(new TimerCallback(state =>
+        {
+            if (!paused)
+            {
+                if (intervalCount % 2 == 0)
+                {
+                    compareFirst = runPaceFirstNum;
+                }
+                else
+                {
+                    compareFirst = walkPaceFirstNum;
+                }
+                int generate = rand.Next(0, 2);                        
+                if (generate == 1)
+                {    
+                    if (firstNum < compareFirst)                         
+                    {                                
+                        firstNum++;                            
+                    }
+                    else if(firstNum > compareFirst)
+                    {
+                        firstNum--;
+                    }
+                    bool addNum = rand.Next(2) == 1;                            
+                    if (addNum && secondNum == 59)
+                    {     
+                        firstNum++;
+                        secondNum = 0;                          
+                    }
+                    else if (!addNum && secondNum == 0)
+                    {
+                        secondNum = 59;
+                        firstNum--;
+                    }
+                    else if (addNum)
+                    {
+                        secondNum++;
+                    }
+                    else if (!addNum)
+                    {
+                        secondNum--;
+                    }
+
+                    if (secondNum < 10)
+                    {
+                        newPace = firstNum.ToString() + ":" + "0" + secondNum.ToString();
+                    }
+                    else
+                    {
+                        newPace = firstNum.ToString() + ":" + secondNum.ToString();
+                    }
+                }
+                this.InvokeAsync(StateHasChanged);
+            }
+        }        
+        ), null, 0, 250);
     }
 
 
