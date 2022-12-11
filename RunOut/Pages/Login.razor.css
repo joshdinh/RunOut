@@ -10,9 +10,8 @@
     align-items: center;
     margin: auto;
     border-radius: 3px;
-
     height: 100%;
-    border: 1px solid red;
+    padding-top: 200px;
 }
 
 h1 {

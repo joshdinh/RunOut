@@ -6,11 +6,11 @@
         <div class='with-bg time-container'>
             <p class='day'>13</p>
             <p class='days'>Days left</p>
-            <p class='date'>Dec. 11</p>
+            <p class='date'>@marathonDate</p>
         </div>
 
         <div class='info-section with-bg'>
-            <h1>Name of Marathon</h1>
+            <h1>@marathonName</h1>
 
             <ul style="list-style">
                 <li>Distance:</li>
@@ -32,25 +32,29 @@
 
 
     <div class='with-bg week-workout'>
-        <p>WEEK X</p>
-        
+        <p>WEEK @currentWeek</p>
+
         <div class="grid-container">
-            <div class="grid-item"><h1>Rest</h1>
-                <p>Description</p>
+            <div class="grid-item">
+                @Calendar_Data.runs[0].runType
                 <button>START</button>
             </div>
 
-            <div class="grid-item">@Calendar_Data.runs[0].runType</div>
-           
+            <div class="grid-item">
+                @Calendar_Data.runs[0].runType
+            </div>
+
             <div class="grid-item">@Calendar_Data.runs[1].runType</div>
-          
+
+
             <div class="grid-item">@Calendar_Data.runs[2].runType</div>
-         
-            <div class="grid-item">@Calendar_Data.runs[3].runType</div>
-           
-            <div class="grid-item">@Calendar_Data.runs[4].runType</div>
-            
-            <div class="grid-item">@Calendar_Data.runs[5].runType</div>
+
+
+            <div class="grid-item"></div>
+
+            <div class="grid-item"></div>
+
+            <div class="grid-item"></div>
         </div>
     </div>
 
@@ -64,9 +68,23 @@
 </div>
 
 @code {
-    //holds calendar data 
+    //holds calendar data
     [CascadingParameter]
     protected Calendar_Data? Calendar_Data { get; set; }
 
+    string marathonName;
+    int currentWeek;
+    string marathonDate;
 
+    protected override void OnInitialized()
+    {
+        UserData data;
+        Database.userData.TryGetValue(Database.currentUser, out data);
+        marathonName = data.marathonName;
+        currentWeek = data.currentWorkoutDay;
+        marathonDate = data.marathonRaceDate;
+
+
+
+    }
 }

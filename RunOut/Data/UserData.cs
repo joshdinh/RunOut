@@ -18,7 +18,7 @@
             this.marathonName = marathonName;
             this.currentWorkoutWeek = currentWorkoutWeek;
             this.currentWorkoutDay = currentWorkoutDay;
-            WorkoutSet = workoutSet;
+            this.WorkoutSet = workoutSet;
         }
 
     }
