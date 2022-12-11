@@ -1,0 +1,140 @@
+﻿.dateTitle {
+    position: absolute;
+    width: 76px;
+    height: 20px;
+
+    left: 133px;
+    top: 68px;
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #F4F5F7;
+}
+
+.monthSelector {
+    position: absolute;
+    width: 326px;
+    height: 40px;
+    left: 32px;
+    top: 57px;
+}
+
+.increaseMonth {
+   background: transparent;
+    border: none !important;
+    font-size: 0;
+    position: absolute;
+    width: 23px;
+    height: 24px;
+    left: 228px;
+    top: 64px;
+}
+
+.decreaseMonth {
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+    position: absolute;
+    width: 23px;
+    height: 24px;
+    left: 92px;
+    top: 65px;
+}
+
+.weekTitle {
+    position: absolute;
+    width: 67px;
+    height: 16px;
+    left: 170px;
+    top: 119px;
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.increaseWeek {
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+    position: absolute;
+    width: 23px;
+    height: 24px;
+    left: 246px;
+    top: 115px;
+}
+
+.decreaseWeek {
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+    position: absolute;
+    width: 23px;
+    height: 24px;
+    left: 139px;
+    top: 115px;
+}
+.cardContainer {
+    position: absolute;
+    width: 332px;
+    height: 629px;
+    left: 30px;
+    top: 107px;
+}
+
+.calendarCardContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 298px;
+    height: 573px;
+    top: 155px;
+    left: 46px;
+}
+
+.bottomNav {
+    position: absolute;
+    width: 358px;
+    height: 56px;
+    left: 17px;
+    top: 754px;
+}
+
+.homepage {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 64px;
+    top: 770px;
+}
+
+.calendar {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 139.33px;
+    top: 770px;
+}
+
+.profile {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 238px;
+    top: 770px;
+}
+
+.feed {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 326px;
+    top: 770px;
+}

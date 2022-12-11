@@ -73,3 +73,67 @@
     background-color: none;
     background-color: #fff0;
 }
+
+.options {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 260px;
+    top: 25.5px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+}
+
+.optionModal {
+    width:96px;
+    height:108px;
+    position: absolute;
+    left: 160px;
+    top:0px;
+}
+
+.restOption {
+    width: 96px;
+    height: 36px;
+    position: absolute;
+    left: 172px;
+    top: 0px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+}
+
+.intervalOption {
+    width: 96px;
+    height: 36px;
+    position: absolute;
+    left: 172px;
+    top: 38px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+}
+
+.longOption {
+    width: 96px;
+    height: 36px;
+    position: absolute;
+    left: 172px;
+    top: 76px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+    z-index:10;
+}
+
+.startRun {
+    width: 56px;
+    height: 32px;
+    position: absolute;
+    left: 178px;
+    top: 21.5px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+}

@@ -1,5 +1,4 @@
-﻿@page "/calendar"
-@page "/rest"
+﻿@page "/calendar2"
 @layout MainLayout
 
 <div class="content">
@@ -17,47 +16,25 @@
 	<button class="decreaseWeek" @onclick="decrementWeek"></button>
 
 	<div class="calendarCardContainer">
-		@if(page == 0)
+		@for (int i = Calendar_Data.runPointer; i < Calendar_Data.runPointer+7; i++)
 		{
 
-			@for (int i = Calendar_Data.runPointer; i < Calendar_Data.runPointer+7; i++)
-			{
-				<Calendar_Card 
-				month = "@Calendar_Data.runs[i].month"
-				day = "@Calendar_Data.runs[i].day"
-				title = "@Calendar_Data.runs[i].runType"
-				distance = "@Calendar_Data.runs[i].distance"
-				active = "@Calendar_Data.runs[i].active"
-				listPointer = "@i"
-			> 
-			</Calendar_Card>
-			}
-
+			<Calendar_Card 
+			month = "@Calendar_Data.runs[i].month"
+			day = "@Calendar_Data.runs[i].day"
+			title = "@Calendar_Data.runs[i].runType"
+			distance = "@Calendar_Data.runs[i].distance"
+			active = "@Calendar_Data.runs[i].active"
+			listPointer = "@i"
+		> 
+		</Calendar_Card>
 		}
-
-		@if( page == 1)
-		{
-			@for (int i = 7; i < Calendar_Data.runs.Count; i++)
-			{
-						<Calendar_Card 
-				month = "@Calendar_Data.runs[i].month"
-				day = "@Calendar_Data.runs[i].day"
-				title = "@Calendar_Data.runs[i].runType"
-				distance = "@Calendar_Data.runs[i].distance"
-				active = "@Calendar_Data.runs[i].active"
-				listPointer = "@i"
-			> 
-					</Calendar_Card>
-			}
-		}
-
-
 
 	</div>
 	<img src="Images/BottonNav_Calendar.png" class="bottomNav" />
-	<a href="/home" class="homepage"></a>
+	<a href="/runningform" class="homepage"></a>
 	<a href="/calendar" class="calendar"></a>
-	<a href="/profile" class="profile"></a>
+	<a href="/runningform" class="profile"></a>
 	<a href="/userfeed" class="feed"></a>
 
 
@@ -66,9 +43,9 @@
 @code {
 	public int weekValue = 0;
 	private int monthValue = 0;
+	private int currentDay;
 	private string[] month = { "January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
-	private int page = 0;
 	/*
 	* 	<Calendar_Card month=@calendar[i].month day=@calendar[i].day
 								title=@calendar[i].runType
@@ -80,6 +57,12 @@
 	protected Calendar_Data ? Calendar_Data { get; set; }
 	[Parameter] public Action<int> runPointer { get; set; }
 	// changeRun(int day, string type){ find a way to change Calendar_Data vlues runs[i].type = new Type}
+
+	private void incrementDay()
+
+	{
+		currentDay++;
+	}
 
 	private void incrementMonth()
 	{
@@ -102,7 +85,6 @@
 
 	private void incrementWeek()
 	{
-		page++;
 		weekValue++;
 		if (weekValue == 3)
 		{
@@ -113,7 +95,6 @@
 
 	private void decrementWeek()
 	{
-		page--;
 		weekValue--;
 		if (weekValue == -1)
 		{
