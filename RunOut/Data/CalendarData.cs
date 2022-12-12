@@ -7,6 +7,21 @@ namespace RunOut.Data
 {
     public class Calendar_Data
     {
+        public struct CompletedRun
+        {
+            public string month;
+            public int day;
+            public string distance;
+            public string pace;
+
+            public CompletedRun(string month, int day, string distance, string pace)
+            {
+                this.month = month;
+                this.day = day;
+                this.distance = distance;
+                this.pace = pace;
+            }
+        }
         public List<Day> runs = new List<Day>();
         public int runPointer = 3;
 
@@ -19,53 +34,53 @@ namespace RunOut.Data
 
         public Interval nullInterval = new Interval(0, 0, 0, 0);
 
-		public Calendar_Data()
+        public Calendar_Data()
         {
             feed = new List<Feed>();
             feed.Add(new Feed("Jessica", "This is the best interval run", "10K", "6:40"));
-			feed.Add(new Feed("Annie", "What's up new PR", "10K", "5:30"));
-		}
+            feed.Add(new Feed("Annie", "What's up new PR", "10K", "5:30"));
+        }
         public void generateAccounts()
         {
-            accounts.Add(new Account("user", "pass", "Chris"));
-            accounts.Add(new Account("user1", "pass", "Jessica"));
-            accounts.Add(new Account("user2", "pass", "Annie"));
-            accounts.Add(new Account("blank", "blank", "blank"));
+            accounts.Add(new Account("user", "pass", "Chris",1));
+            accounts.Add(new Account("user1", "pass", "Jessica",1));
+            accounts.Add(new Account("user2", "pass", "Annie", 1));
+            accounts.Add(new Account("blank", "blank", "blank",0));
         }
 
 
         public void createRoutine(int accountNum)
         {
-            if(accountNum == 0)
+            if (accountNum == 0)
             {
                 currentDay = 11;
                 currentMonth = 12;
                 runPointer = 3;
 
-                user1Runs.Add(new CompletedRun("Dec", 8, "0", "0"));
-                user1Runs.Add(new CompletedRun("Dec", 9, "1.5km", "5:42"));
-                user1Runs.Add(new CompletedRun("Dec", 10, "0", "0"));
+                user1Runs.Add(new CompletedRun("Jan", 1, "0", "0"));
+                user1Runs.Add(new CompletedRun("Jan", 2, "1.5km", "5:42"));
+                user1Runs.Add(new CompletedRun("Jan", 3, "0", "0"));
 
                 //Week 1
-                runs.Add(new Day("Dec", "Thu", 8, "Rest", nullInterval, 0, "0", 2));
-                runs.Add(new Day("Dec", "Fri", 9, "Run", nullInterval, 1.5, "5:30", 2));
-                runs.Add(new Day("Dec", "Sat", 10, "Rest", nullInterval, 0, "0", 2));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 1));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 2));
+                runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 2));
+                runs.Add(new Day("Jan", "Tue", 10, "Rest", nullInterval, 0, "0", 2));
+                runs.Add(new Day("Jan", "Wed", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 1));
+                runs.Add(new Day("Jan", "Thu", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Fri", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sat", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
 
                 //Week 2
-                runs.Add(new Day("Dec", "Thu", 8, "Rest1", nullInterval, 0, "0", 0));
-                runs.Add(new Day("Dec", "Fri", 9, "Run2", nullInterval, 1.5, "5:30", 0));
-                runs.Add(new Day("Dec", "Sat", 10, "Rest3", nullInterval, 0, "0", 0));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval4", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval5", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval6", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Dec", "Sun", 11, "Interval7", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sun", 8, "Rest", nullInterval, 0, "0", 0));
+                runs.Add(new Day("Jan", "Mon", 9, "Run", nullInterval, 1.5, "5:30", 0));
+                runs.Add(new Day("Jan", "Tue", 10, "Rest", nullInterval, 0, "0", 0));
+                runs.Add(new Day("Jan", "Wed", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Thu", 11, "Rest", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Fri", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sat", 11, "Race Day", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
 
             }
-            else if(accountNum == 1)
+            else if (accountNum == 1)
             {
                 currentDay = 10;
                 currentMonth = 12;
@@ -74,8 +89,20 @@ namespace RunOut.Data
                 user1Runs.Add(new CompletedRun("Dec", 8, "0", "0"));
                 user1Runs.Add(new CompletedRun("Dec", 9, "1.5km", "5:37"));
                 //Week 1
-                runs.Add(new Day("Dec", "Thu", 8, "Rest", nullInterval, 0, "0", 2));
-                runs.Add(new Day("Dec", "Fri", 9, "Run", nullInterval, 1.5, "5:30", 2));
+                runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 2));
+                runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 2));
+            }
+            else
+            {
+                currentDay = 1;
+                currentMonth = 1;
+                runPointer = 1;
+
+                user1Runs.Add(new CompletedRun("Dec", 8, "0", "0"));
+                user1Runs.Add(new CompletedRun("Dec", 9, "1.5km", "5:37"));
+                //Week 1
+                runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 1));
+                runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 0));
             }
         }
         public struct Interval
@@ -117,7 +144,7 @@ namespace RunOut.Data
                 this.active = active;
             }
 
-           
+
         }
 
         public List<Account> accounts = new List<Account>();
@@ -140,35 +167,35 @@ namespace RunOut.Data
             public string raceDistance;
             public string targetPace;
 
-            public Account(string user, string password, string name)
+            public Account(string user, string password, string name, int raceDay)
             {
 
                 this.user = user;
                 this.password = password;
                 this.name = name;
                 runName = "Dash of Doom";
-                raceDay = 0;
+                this.raceDay = raceDay;
                 raceMonth = 0;
                 raceYear = 2022;
                 raceDistance = "10";
                 targetPace = "6:40";
 
             }
-			public Account(string user, string password, string name, string runName, int raceDay, int raceMonth, int raceYear, string raceDistance, string targetPace)
-			{
+            public Account(string user, string password, string name, string runName, int raceDay, int raceMonth, int raceYear, string raceDistance, string targetPace)
+            {
 
-				this.user = user;
-				this.password = password;
-				this.name = name;
-				this.runName = runName;
-				this.raceDay = raceDay;
-				this.raceMonth = raceMonth;
-				this.raceYear = raceYear;
-				this.raceDistance = raceDistance;
-				this.targetPace = targetPace;
+                this.user = user;
+                this.password = password;
+                this.name = name;
+                this.runName = runName;
+                this.raceDay = raceDay;
+                this.raceMonth = raceMonth;
+                this.raceYear = raceYear;
+                this.raceDistance = raceDistance;
+                this.targetPace = targetPace;
 
-			}
-		}
+            }
+        }
         public List<Feed> feed = new List<Feed>();
         public struct Feed
         {
@@ -179,14 +206,14 @@ namespace RunOut.Data
 
             public List<Feed> comments;
 
-            public Feed( string name, string comment, string distance, string pace)
+            public Feed(string name, string comment, string distance, string pace)
             {
-                this.name = name;   
-                this.comment = comment; 
+                this.name = name;
+                this.comment = comment;
                 this.distance = distance;
                 this.pace = pace;
                 comments = new List<Feed>();
-                comments.Add(new Feed("Jessica","Nice Run"));
+                comments.Add(new Feed("Jessica", "Nice Run"));
             }
 
             public Feed(string name, string comment)
@@ -198,20 +225,7 @@ namespace RunOut.Data
                 comments = new List<Feed>();
             }
 
-        public struct CompletedRun
-        {
-            public string month;
-            public int day;
-            public string distance;
-            public string pace;
 
-            public CompletedRun(string month, int day, string distance, string pace)
-            {
-                this.month = month;
-                this.day = day;
-                this.distance = distance;
-                this.pace = pace;
-            }
         }
     }
 
