@@ -17,9 +17,10 @@ namespace RunOut.Data
 
 		public Calendar_Data()
         {
-
-
-        }
+            feed = new List<Feed>();
+            feed.Add(new Feed("Jessica", "This is the best interval run", "10K", "6:40"));
+			feed.Add(new Feed("Annie", "What's up new PR", "10K", "5:30"));
+		}
         public void generateAccounts()
         {
             accounts.Add(new Account("user", "pass", "Chris"));
@@ -27,6 +28,8 @@ namespace RunOut.Data
             accounts.Add(new Account("user2", "pass", "Annie"));
             accounts.Add(new Account("blank", "blank", "blank"));
         }
+
+
         public void createRoutine(int accountNum)
         {
             if(accountNum == 0)
@@ -154,8 +157,26 @@ namespace RunOut.Data
             public string distance;
             public string pace;
 
-            List<Feed> comments;
+            public List<Feed> comments;
 
+            public Feed( string name, string comment, string distance, string pace)
+            {
+                this.name = name;   
+                this.comment = comment; 
+                this.distance = distance;
+                this.pace = pace;
+                comments = new List<Feed>();
+                comments.Add(new Feed("Jessica","Nice Run"));
+            }
+
+            public Feed(string name, string comment)
+            {
+                this.name = name;
+                this.comment = comment;
+                this.distance = "";
+                this.pace = "";
+                comments = new List<Feed>();
+            }
 
         }
     }

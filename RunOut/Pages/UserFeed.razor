@@ -6,30 +6,50 @@
 		<h2 class="accountName">@accountName</h2>
 		<p class="location">@location</p>
 		<button class="friends" @onclick = "Switch"/>
-		@if(_display)
-		{
-			<img src="Images/FriendList.png" class="friendsList" />
-		}
 
 		<div class="feedContainer">
-			<FeedCard/>
+			@for (int i = 0; i < Calendar_Data.feed.Count; i++)
+			{
+					<FeedCard 
+				name = "@Calendar_Data.feed[i].name"
+				comment = "@Calendar_Data.feed[i].comment"
+				 pace="@Calendar_Data.feed[i].pace"
+				 distance = "@Calendar_Data.feed[i].distance"
+				 like = "@i"
+					>
+				</FeedCard>
+			}
+
 		</div>
+		@if (_display)
+		{
+				<img src="Images/FriendList.png" class="friendsList" />
+		}
 
 	</div>
 
 	<img src="Images/BottomNav_UserFeed.png" class="bottomNav" />
-	<a href="/runningform" class="homepage"></a>
+	<a href="/dashboard" class="homepage"></a>
 	<a href="/calendar" class="calendar"></a>
-	<a href="/runningform" class="profile"></a>
+	<a href="/profile" class="profile"></a>
 	<a href="/userfeed" class="feed"></a>
 </div>
 
 @code {
+
+	[CascadingParameter]
+	protected Calendar_Data? Calendar_Data { get; set; }
+
 	[Parameter]
-	public string accountName { get; set; } = "Chris Evans";
+	public string accountName { get; set; }
 	[Parameter]
 	public string location { get; set; } = "Calgary, AB";
 
+	protected override void OnInitialized()
+	{
+		accountName = Calendar_Data.currentName;
+
+	}
 	private bool _display = false;
 	private void Switch(MouseEventArgs e)
 		=> _display = !_display;

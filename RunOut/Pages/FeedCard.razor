@@ -1,21 +1,48 @@
 ﻿@page "/FeedCard"
 @layout MainLayout
 
-<div className = "card">
+<div class = "card">
 
 	@if (_display)
 	{
 		<img src="Images/FeedCard_Comment.png" class="friendsList" />
-
+		<p class="commentonetitle">Tim </p>
+		<p class="commentonetext">Nice Run!!!</p>
+		<p class="commenttwotitle">Jessica </p>
+		<p class="commenttwotext">Thanks for the support</p>
 	}
 	else {
 
 		<img src="Images/FeedCard.png" class="friendsList" />
+
 	}
+	<h2 class="name">@name</h2>
+	<p class="comment">@comment</p>
+	<p class="distance">@distance</p>
+	<p class="pace">@pace</p>
+	<button onclick ="@Increment"class="like">Likes: @like</button>
+	<button class="commentButton" onclick="@Switch">Comments</button>
 
 </div>
 @code {
+	[Parameter]
+	public string name  { get; set; }
+	[Parameter]
+	public string comment { get; set; }
+	[Parameter]
+	public string distance { get; set; }
+	[Parameter]
+	public string pace { get; set; }
+	[Parameter]
+	public int like { get; set; } = 0;
+	[Parameter]
+	public int commentNum { get; set; } = 0;
+
 	private bool _display = false;
+	private void Increment()
+	{
+		like++;
+	}
 	private void Switch(MouseEventArgs e)
 		=> _display = !_display;
 }

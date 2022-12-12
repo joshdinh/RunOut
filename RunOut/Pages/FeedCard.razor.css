@@ -1,0 +1,125 @@
+﻿
+.card {
+    position: relative;
+    background-color: none;
+    background-color: #fff0;
+}
+
+.name {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 40px;
+    color: #5AC8FA;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+}
+
+.comment {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #F4F5F7;
+
+    position: absolute;
+    left:16px;
+    top: 56px;
+}
+
+.distance {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #F4F5F7;
+    position: absolute;
+    left: 16px;
+    top: 72px;
+}
+
+.pace {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #F4F5F7;
+    position: absolute;
+    left: 16px;
+    top: 88px;
+}
+
+.like {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 22px;
+    top: 136px;
+    background: transparent;
+    border: none !important;
+}
+.commentButton {
+    width: 271px;
+    height: 32px;
+    position: absolute;
+    left: 99px;
+    top: 128px;
+    background: transparent;
+    border: none !important;
+
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.commentonetitle {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 40px;
+    /* identical to box height, or 250% */
+    color: #5AC8FA;
+    position: absolute;
+    top: 192px;
+    left: 16px;
+}
+
+.commenttwotitle {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 40px;
+    /* identical to box height, or 250% */
+    color: #5AC8FA;
+    position: absolute;
+    top: 296px;
+    left: 16px;
+}
+
+.commentonetext {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #F4F5F7;
+    position: absolute;
+    left: 16px;
+    top: 240px;
+}
+
+.commenttwotext {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #F4F5F7;
+    position: absolute;
+    left: 16px;
+    top: 345px;
+}
