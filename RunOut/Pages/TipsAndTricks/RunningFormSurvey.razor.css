@@ -2,6 +2,7 @@
 .content {
     text-align: center;
     padding-bottom: 20px;
+    
 }
 
 .tipButtons {
@@ -20,6 +21,17 @@
         
     }
 
+#startAnalysis{
+    border-radius:8px;
+    border:none;
+    color:white;
+    background-color:#34C759;
+    font-weight:600;
+    font-size:15px;
+    width:150px;
+    height:35px;
+    margin-top:10px;
+}
 
 
 #running {
@@ -38,8 +50,9 @@
     background-color: rgb(28, 28, 30,0.59);
     margin: 40px 30px 10px 30px;
     border-radius: 16px;
-    height: 750px;
-    padding-top:40px;
+    height: 650px;
+    padding: 7.5px;
+    position:relative;
 }
 
 a {
@@ -47,36 +60,11 @@ a {
     color: white;
 }
 
-
-.uploadVideo {
-    padding-top:40px;
-    background-color: #3A3A3C;
-    border-radius: 16px;
-    width:290px;
-    height:250px;
-    text-align:center;
-    margin-left:30px;
-    margin-right:30px;
-    
-    
-    
-}
-
-.upload {
-    color: white;
-    background-color: #34C759;
-    border-radius: 8px;
-    border: none;
-    width: 115px;
-    height: 35px;
-    font-size: 15px;
-    font-weight: 600;
-    margin-top:10px;
-}
-
 h3 {
     color: #34C759;
     font-weight: 700;
+    font-size:25px;
+    margin-top:150px;
 }
 
 p{
@@ -86,8 +74,14 @@ p{
     padding-right:25px;
 }
 
-.questions{
-    margin-top:50px;
+#description{
+    margin-top:10px;
+}
+
+#questNum{
+ 
+    margin-top:120px;
+    color:#34C759;
 }
 
 .answers{
@@ -101,18 +95,26 @@ p{
         background-color: #3A3A3C;
         border-radius: 8px;
         border: none;
-        width: 300px;
-        height: 35px;
+        width: 265px;
+        height: 50px;
         font-size: 15px;
-        font-weight: 600;
+        font-weight: 500;
         margin:10px 25px;
+        transition:0.5s all;
     }
+        .answers button:hover {
+            background-color: #34C759;
+        }
 
 
 .sideScrollButtons {
-    margin-top: 20px;
+    
     font-size: 30px;
     color: white;
+    position:absolute;
+    padding:15px;
+    bottom:0;
+        
 }
 
     .sideScrollButtons button {
@@ -126,6 +128,17 @@ p{
         font-size: 30px;
         color: white;
     }
+
+ #resultHeading{
+     margin:40px 25px;
+     color:#34C759;
+     font-weight:600;
+     text-align:left;
+ }
+
+ .result{
+     text-align:left;
+ }
 
 .back {
     margin-right: 270px;

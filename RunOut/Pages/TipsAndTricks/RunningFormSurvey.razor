@@ -22,22 +22,84 @@
         </a>
     </div>
     <div class="actualTips">
-        <div class="uploadVideo">
-            <h3>FORM ANALYSIS</h3>
-            <p>Upload a video of you running and answer the questions below to analyze your form</p>
-            <button class="upload">Upload Video</button>
-            
-
-        </div>
+        
         <div class="questions">
-            <h3>FORM QUESTIONNAIRE</h3>
-            <p>What part of your foot comes into contact with the ground?</p>
-            <div class="answers">
-                <button>A</button>
-                <button>B</button>
-                <button>C</button>
-                <button>D</button>
-            </div>
+            @if (!begin)
+            {
+                <h3>FORM ANALYSIS</h3>
+                <p id="description">Use the following questions to analyze your running form, answer accordingly.</p>
+                <button id="startAnalysis" @onclick=@start>BEGIN</button> 
+            }
+          
+            @if (begin && currentQ == 1)
+            {
+              <h4 id="questNum">QUESTION 1</h4>
+              <p id="question">What part of your foot strikes the ground first while running?</p>
+              <div class="answers">
+                    <button @onclick="() => nextQ(1)">Heels</button>
+                    <button @onclick="() => nextQ(2)">Toes</button>
+                    <button @onclick="() => nextQ(3)">Balls of Feet</button>
+              </div>   
+            }
+            @if (begin && currentQ == 2)
+            {
+                <h4 id="questNum">QUESTION 2</h4>
+                <p id="question">What is your head, neck, and shoulder position like during runs?</p>
+                <div class="answers">
+                    <button @onclick="() => nextQ(1)">Head jutting out, gaze pointed down, shoulders leaning forward </button>
+                    <button @onclick="() => nextQ(2)">Head and gaze pointed straight ahead, shoulders directly under head</button>
+                    <button @onclick="() => nextQ(3)">Head and gaze pointed upwards, shoulders rolled back</button>
+                </div>
+            }
+              @if (begin && currentQ == 3)
+            {
+              <h4 id="questNum">QUESTION 3
+              </h4>
+              <p id="question">What is your arm and hand position like during runs?</p>
+              <div class="answers">
+                    <button @onclick="() => nextQ(1)">Arms in 90 degree angle, driving elbow backwards </button>
+                    <button @onclick="() => nextQ(2)">Arms in 90 degree angle, swing forward towards belly button </button>
+                    <button @onclick="() => nextQ(3)">Arms slightly bent, dangle next to hips</button>
+              </div>   
+            }
+            @if (begin && currentQ == 4)
+            {
+                <h4 id="questNum">QUESTION 4</h4>
+                <p id="question">Which breathing pattern do you practice during runs?</p>
+                <div class="answers">
+                    <button @onclick="() => nextQ(1)">Breathe by expanding belly</button>
+                    <button @onclick="() => nextQ(2)">Breathe by expanding chest </button>
+                </div>
+            }
+            @if(begin && currentQ == 5)
+            {
+                <h4 id="resultHeading">Based on the results, here is how you can improve your form...</h4>
+                @if(correctAnswer1 && correctAnswer2 && correctAnswer3 && correctAnswer4)
+                {
+                    <p class="result">You've got perfect form! Keep doing what you're doing.</p>
+                }
+                @if (!correctAnswer1)
+                {
+                    <p class="result">When running, make sure that the balls of your feet strike the ground first.</p>
+                }
+                @if (!correctAnswer2)
+                {
+                    <p class="result">
+                        Maintain a good posture by keeping your gaze and head pointed straight ahead. Your shoulders
+                        should fall directly under your shoulders and should not be slouching forward.
+                    </p>
+                }
+                @if (!correctAnswer3)
+                {
+                    <p class="result">Your arms should be bent at a 90 degree angle and swing slightly back and forth with each step taken.</p>
+                }
+                @if (!correctAnswer4)
+                {
+                    <p class="result">Make sure that your belly expands instead of your chest with each breath you take during runs.</p>
+                }
+            }
+
+           
             
         </div>
 
@@ -50,13 +112,45 @@
                 </button>
             </a>
 
-
-
         </div>
         
     </div>
 </div>
 
 @code {
+    public bool begin = false;
+    public int currentQ = 1;
+    public bool correctAnswer1 = false;
+    public bool correctAnswer2 = false;
+    public bool correctAnswer3 = false;
+    public bool correctAnswer4 = false;
+
+    public void start()
+    {
+        begin = true;
+    }
+
+    public void nextQ(int buttonNum)
+    {
+        if(currentQ == 1 && buttonNum == 3)
+        {
+            correctAnswer1 = true;
+        }
+        else if (currentQ == 2 && buttonNum == 2)
+        {
+            correctAnswer2 = true;
+        }
+        else if (currentQ == 3 && buttonNum == 1)
+        {
+            correctAnswer3 = true;
+        }
+        else if (currentQ == 4 && buttonNum == 1)
+        {
+            correctAnswer4 = true;
+        }
+
+        currentQ++;
+    }
+
 
 }

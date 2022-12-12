@@ -36,7 +36,17 @@
     margin: 40px 30px 10px 30px;
     border-radius: 16px;
     text-align: left;
+    overflow: auto;
+    height: 650px;
+    width: 330px;
 }
+
+    .actualTips::-webkit-scrollbar {
+        width: 4px;
+        height: 100%;
+        background-color: transparent;
+    }
+
 
 a {
     text-decoration: none;
