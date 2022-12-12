@@ -17,6 +17,7 @@
 
 #heading{
     padding-top:15px;
+    margin-left:auto;
 
 
 }
@@ -26,6 +27,7 @@
     font-size:20px;
     border:none;
     background-color:transparent;
+    padding-top:10px;
     margin-right:auto;
     
 }

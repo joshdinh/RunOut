@@ -36,7 +36,7 @@
     background-color: rgb(28, 28, 30,0.59);
     margin: 40px 30px 10px 30px;
     border-radius: 16px;
-    height: 750px;
+    height: 650px;
 }
 
 a {
@@ -82,7 +82,7 @@ iframe {
 }
 
 .sideScrollButtons {
-    margin-top: 300px;
+    margin-top: 220px;
     font-size: 30px;
     color: white;
 }

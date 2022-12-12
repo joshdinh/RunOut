@@ -37,8 +37,7 @@
     background-color: rgb(28, 28, 30,0.59);
     margin: 40px 30px 10px 30px;
     border-radius: 16px;
-    height:750px;
-
+    height: 650px;
 }
 
 a {
@@ -53,7 +52,9 @@ a {
 h3 {
     color: #34C759;
     font-weight: 700;
-    margin: 0 20px 0 20px;
+    margin:0 20px 0 20px;
+
+
 }
 
 iframe {
@@ -63,28 +64,19 @@ iframe {
 
 .actualTips{
     text-align:center;
+   
 }
 
 .actualTips p {
     color: white;
-    margin: 10px 20px;
+    margin: 10px 25px;
     font-weight: 400;
     font-family: 'Roboto',sans-serif;
 }
 
-.upload {
-    color: white;
-    background-color: #34C759;
-    border-radius:8px;
-    border:none;
-    width:115px;
-    height:35px;
-    font-size:15px;
-    font-weight:600;
-}
 
 .sideScrollButtons{
-    margin-top:300px;
+    margin-top:195px;
     font-size: 30px;
     color: white;
         

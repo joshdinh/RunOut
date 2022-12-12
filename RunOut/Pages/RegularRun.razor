@@ -43,7 +43,7 @@
                 <p class="km">MIN/KM</p>
             </div>
             <button id="pause" @onclick="@toggleStart">@btnState</button>
-            <a href="/runcomplete/@distance/@newPace/@time"><button id="finish">FINISH</button></a>
+            <a href="/runcomplete/@distance/@newPace/@formattedTime"><button id="finish">FINISH</button></a>
             
             
         </div>
@@ -59,8 +59,9 @@
     public bool paused = false;
     public string btnState = "START";
 
-    public double hr, min, sec;
+    public double hr, min, sec = 0;
     string time = "00:00";
+    string formattedTime = "0 min 0 sec";
     string seconds;
     string minutes;
     bool neverInit = true;
@@ -69,10 +70,6 @@
     string newPace = "0:00";
 
     double distance = 0;
-
-
-
-
 
     public int findIndex()
     {
@@ -122,7 +119,9 @@
                         hr++;
                     }
                     formatTime(min, sec);
-                    double tempMin = min + sec / 60;
+                    formattedTime = min.ToString() + "min " + sec.ToString() + "sec";
+            
+                    double tempMin = min + (sec / 60);
                     distance = tempMin / pace;
                     distance = Math.Round(distance, 2);
 
@@ -172,10 +171,6 @@
                         {
                             secondNum--;
                         }
-
-
-
-
                         if (secondNum < 10)
                         {
                             newPace = firstNum.ToString() + ":" + "0" + secondNum.ToString();
@@ -191,7 +186,7 @@
 
 
             }
-        ), null, 0, 150);
+        ), null, 0, 250);
     }
 
 
@@ -217,7 +212,6 @@
         time =  minutes+ ":"+ seconds;
         return time;
     }
-
 
 
 

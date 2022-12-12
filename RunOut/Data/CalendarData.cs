@@ -1,4 +1,4 @@
-﻿using RunOut.Pages;
+using RunOut.Pages;
 using static RunOut.Pages.Calendar;
 using System.Globalization;
 using static RunOut.Data.UserData;
@@ -8,10 +8,14 @@ namespace RunOut.Data
     public class Calendar_Data
     {
         public List<Day> runs = new List<Day>();
-        public int runPointer = 0;
+        public int runPointer = 3;
 
         public int currentDay = 1;
         public int currentMonth = 1;
+
+        public List<CompletedRun> user1Runs = new List<CompletedRun>();
+        public List<CompletedRun> user2Runs = new List<CompletedRun>();
+        public List<CompletedRun> user3Runs = new List<CompletedRun>();
 
         public Interval nullInterval = new Interval(0, 0, 0, 0);
 
@@ -34,6 +38,14 @@ namespace RunOut.Data
         {
             if(accountNum == 0)
             {
+                currentDay = 11;
+                currentMonth = 12;
+                runPointer = 3;
+
+                user1Runs.Add(new CompletedRun("Dec", 8, "0", "0"));
+                user1Runs.Add(new CompletedRun("Dec", 9, "1.5km", "5:42"));
+                user1Runs.Add(new CompletedRun("Dec", 10, "0", "0"));
+
                 //Week 1
                 runs.Add(new Day("Dec", "Thu", 8, "Rest", nullInterval, 0, "0", 2));
                 runs.Add(new Day("Dec", "Fri", 9, "Run", nullInterval, 1.5, "5:30", 2));
@@ -55,6 +67,12 @@ namespace RunOut.Data
             }
             else if(accountNum == 1)
             {
+                currentDay = 10;
+                currentMonth = 12;
+                runPointer = 2;
+
+                user1Runs.Add(new CompletedRun("Dec", 8, "0", "0"));
+                user1Runs.Add(new CompletedRun("Dec", 9, "1.5km", "5:37"));
                 //Week 1
                 runs.Add(new Day("Dec", "Thu", 8, "Rest", nullInterval, 0, "0", 2));
                 runs.Add(new Day("Dec", "Fri", 9, "Run", nullInterval, 1.5, "5:30", 2));
@@ -98,6 +116,8 @@ namespace RunOut.Data
                 this.distance = distance;
                 this.active = active;
             }
+
+           
         }
 
         public List<Account> accounts = new List<Account>();
@@ -178,6 +198,21 @@ namespace RunOut.Data
                 comments = new List<Feed>();
             }
 
+        public struct CompletedRun
+        {
+            public string month;
+            public int day;
+            public string distance;
+            public string pace;
+
+            public CompletedRun(string month, int day, string distance, string pace)
+            {
+                this.month = month;
+                this.day = day;
+                this.distance = distance;
+                this.pace = pace;
+            }
         }
     }
+
 }
