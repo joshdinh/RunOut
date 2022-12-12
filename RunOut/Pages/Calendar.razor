@@ -20,7 +20,7 @@
 		@if(page == 0)
 		{
 
-			@for (int i = 0; i < Calendar_Data.runs.Count; i++)
+			@for (int i = 0; i < returnLargest(i); i++)
 			{
 				<Calendar_Card 
 				month = "@Calendar_Data.runs[i].month"
@@ -37,7 +37,7 @@
 
 		@if( page == 1)
 		{
-			@for (int i = 7; i < Calendar_Data.runs.Count; i++)
+			@for (int i = 7; i < returnLargest2(i); i++)
 			{
 						<Calendar_Card 
 				month = "@Calendar_Data.runs[i].month"
@@ -55,7 +55,7 @@
 
 	</div>
 	<img src="Images/BottonNav_Calendar.png" class="bottomNav" />
-	<a href="/home" class="homepage"></a>
+	<a href="/dashboard" class="homepage"></a>
 	<a href="/calendar" class="calendar"></a>
 	<a href="/profile" class="profile"></a>
 	<a href="/userfeed" class="feed"></a>
@@ -89,6 +89,23 @@
 			monthValue = 0;
 
 		}
+	}
+	public int returnLargest(int i)
+	{
+		if (Calendar_Data.runs.Count-i < 7)
+		{
+			return Calendar_Data.runs.Count;
+		}
+		return 7;
+	}
+
+	public int returnLargest2(int i)
+	{
+		if (Calendar_Data.runs.Count - i < 7)
+		{
+			return Calendar_Data.runs.Count;
+		}
+		return 14;
 	}
 
 	private void decrementMonth()
