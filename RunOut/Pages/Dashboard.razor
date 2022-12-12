@@ -6,17 +6,11 @@
         <div class='with-bg time-container'>
             <p class='day'>13</p>
             <p class='days'>Days left</p>
-            <p class='date'>Dec. 11</p>
+            <p class='date'>@marathonMonth @marathonDay</p>
         </div>
 
         <div class='info-section with-bg'>
-            <h1>Name of Marathon</h1>
-
-            <ul style="list-style">
-                <li>Distance:</li>
-                <li>Location:</li>
-                <li>Notes:</li>
-            </ul>
+            <h1>@raceName</h1>
         </div>
     </div>
 
@@ -33,24 +27,17 @@
 
     <div class='with-bg week-workout'>
         <p>WEEK X</p>
-        
-        <div class="grid-container">
-            <div class="grid-item"><h1>Rest</h1>
-                <p>Description</p>
-                <button>START</button>
-            </div>
 
-            <div class="grid-item">Interval</div>
-           
-            <div class="grid-item">Rest</div>
-          
-            <div class="grid-item">Interval</div>
-         
-            <div class="grid-item">Rest</div>
-           
-            <div class="grid-item">Interval</div>
-            
-            <div class="grid-item">12 Minute Long Run</div>
+        <div class="grid-container">
+     
+            <div class="grid-item"></div>
+
+
+            <div class="grid-item"></div>
+
+            <div class="grid-item"></div>
+
+            <div class="grid-item"></div>
         </div>
     </div>
 
@@ -64,5 +51,43 @@
 </div>
 
 @code {
+    @inject IJSRuntime JSRuntime
+    //holds calendar data
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
 
+
+    //int currentWeek;
+    int marathonMonth;
+    int marathonDay;
+
+
+    private string raceName { get; set; }
+
+    protected override void OnInitialized()
+    {
+
+        raceName = Calendar_Data.accounts[Calendar_Data.accountNumber].runName;
+         /* UserData data;
+        if (Database.userData.TryGetValue(Database.currentUser, out data)){
+            JSRuntime.InvokeVoidAsync("console.log", "marathonName: ", data.marathonName);
+            JSRuntime.InvokeVoidAsync("console.log", "marathonRaceMonth: ", data.marathonRaceMonth);
+            JSRuntime.InvokeVoidAsync("console.log", "marathonRaceDay: ", data.marathonRaceDay);
+            JSRuntime.InvokeVoidAsync("console.log", "raceName: ", data.marathonName);
+            marathonName = data.marathonName;
+            marathonMonth = data.marathonRaceMonth;
+            marathonDay = data.marathonRaceDay;
+            //currentWeek = data.currentWorkoutDay;
+            raceName = data.marathonName;
+
+            //DateTime currentDate = DateTime.Now;
+            //DateTime futureDate = new DateTime(data.marathonRaceYear, data.marathonRaceMonth, data.marathonRaceDay);
+            //TimeSpan timeLeft = futureDate - currentDate;
+            //int daysLeft = timeLeft.Days;
+        };
+        
+*/
+
+
+    }
 }

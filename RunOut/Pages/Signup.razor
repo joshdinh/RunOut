@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components;
-@using Microsoft.AspNetCore.Components.Web;
-
+﻿
 @page "/signup"
 @layout MainLayout
 
@@ -30,7 +28,7 @@
         <input type="text" />
         <input type="button" value="SUBMIT" onclick="@FormSubmitted" />
     </form>
-</div>
+</div>Z
 
 <p>Already have an account? <a href='/login'>Login Here</a></p>
 
@@ -44,26 +42,20 @@
     string lastName;
     string username;
     string password;
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
 
-    private void FormSubmitted()
+    public void FormSubmitted()
     {
-        JSRuntime.InvokeVoidAsync("console.log", "Name: ", firstName, " ", lastName);
-        JSRuntime.InvokeVoidAsync("console.log", "Username: ", username);
-        JSRuntime.InvokeVoidAsync("console.log", "Password: ", password);
-        Database.users.Add(username, password);
-        // Database.userData.Add(username, new UserData());
+ 
+        Calendar_Data.accounts.Add(new Calendar_Data.Account(username,password,firstName));
+        JSRuntime.InvokeVoidAsync("console.log", ": ", Calendar_Data.accounts[3].user);
+        JSRuntime.InvokeVoidAsync("console.log", ": ", Calendar_Data.accounts[3].password);
+        JSRuntime.InvokeVoidAsync("console.log", ": ", Calendar_Data.accounts[3].name);
+  //      Database.users.Add(username, password);
+  //      Database.currentUser = username;
+    //   Database.userData.Add(Database.currentUser, new UserData(firstName, lastName));
 
-        string result;
-        if (Database.users.TryGetValue(username, out result))
-        {
-            Database.currentUser = username;
-            JSRuntime.InvokeVoidAsync("console.log", "Result", result);
-        }
-        else
-        {
-            JSRuntime.InvokeVoidAsync("console.log", "Insert failed");
-        }
-
-        NavManager.NavigateTo("/noprogram");
+        NavManager.NavigateTo("/login");
     }
 }

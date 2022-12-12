@@ -9,6 +9,7 @@
     flex-direction: column;
     height: 100%;
     padding: 8px 8px 32px 8px;
+    padding-top: 60px;
     
 }
 
@@ -71,6 +72,7 @@
     margin-bottom: 8px;
     font-size: 12px;
     font-weight: 900;
+    
 }
 
 .week-workout {
@@ -92,10 +94,13 @@
     background-color: #3A3A3C;
     border-radius: 16px;
     padding: 16px;
+    
 }
 
 .grid-item {
     position: relative;
+    padding-top: 15px;
+    
 }
 
     .grid-item:not(:last-child) {

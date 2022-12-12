@@ -30,27 +30,46 @@
     string password;
     string errorMessage;
 
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
+        
 
-
-    private async void UserLogin()
+    protected override void OnInitialized()
     {
-        //test users
-        //Database.users.TryAdd("user1", "pass1");
+        Calendar_Data.generateAccounts();
+    }
+    private void UserLogin()
+    {
 
         string correctPassword = "";
-        if (Database.users.TryGetValue(username, out correctPassword) && correctPassword == password)
+
+        for (int i = 0; i < Calendar_Data.accounts.Count;i++)
         {
-            //login successful
-            await JSRuntime.InvokeAsync<object>("console.log", "Login successful!");
-            Database.currentUser = username;
-            //NavManager.NavigateTo("/dashboard");
-            NavManager.NavigateTo("/profile");
+             if (Calendar_Data.accounts[i].user.Equals(username) && Calendar_Data.accounts[i].password.Equals( password))
+             {
+                Calendar_Data.accountNumber = i;
+                Calendar_Data.currentUser = username;
+                Calendar_Data.currentPassword = password;
+                Calendar_Data.currentName = Calendar_Data.accounts[i].name;
+                Calendar_Data.createRoutine(i);
+                //login successful
+            
+                JSRuntime.InvokeAsync<object>("console.log", "Login successful!");
+                JSRuntime.InvokeVoidAsync("console.log", ": ", Calendar_Data.accounts[3].user);
+
+            if(Calendar_Data.accounts[Calendar_Data.accountNumber].raceDay == 0)
+                {
+                    NavManager.NavigateTo("/noprogram");
+                }
+                else
+                {
+                    NavManager.NavigateTo("/dashboard");
+                }
+                //NavManager.NavigateTo("/profile");
+             }
         }
-        else
-        {
             //Login failed
             errorMessage = "Invalid username or password.";
-
-        }
+        JSRuntime.InvokeVoidAsync("console.log", ": ", Calendar_Data.accounts[3].user);
     }
 }
