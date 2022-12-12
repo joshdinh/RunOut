@@ -8,6 +8,7 @@ namespace RunOut.Data
     public class Calendar_Data
     {
         public List<Day> runs = new List<Day>();
+
         public int runPointer = 3;
 
         public int currentDay = 1;

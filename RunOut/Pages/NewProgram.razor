@@ -4,26 +4,26 @@
 <div class="content">
 	<div class="back">
 		<form>
-			<p>Race Name</p>
+			<p id="raceName">Race Name</p>
 			<input type="text" @bind="raceName" />
 		</form>
 		<div class="newButtons">
 			<button id="date">
 				<p>Race Date</p>
-				<select @bind="Day">
+				<select class="date" @bind="Day">
 					@for (int i = 1; i <= 31; i++)
 					{
 						<option>@i</option>
 					}
 
 				</select>
-				<select @bind="Month">
+				<select class="date" @bind="Month">
 					@for (int i = 1; i <= 12; i++)
 					{
 						<option value="@i">@Months[i-1]</option>
 					}
 				</select>
-				<select @bind="Year">
+				<select class ="date" @bind="Year">
 					@for (int i = DateTime.Now.Year;
 							i <= DateTime.Now.Year + 5; i++)
 					{
@@ -35,7 +35,7 @@
 			<button id="distance">
 				<p>Race Distance (KM)</p>
 
-				<select @bind="Distance">
+				<select class="date" @bind="Distance">
 					@for (int i = 5; i <= 30; i += 5)
 					{
 						<option>@i</option>
@@ -46,7 +46,7 @@
 
 			<button id="pace">
 				<p>Target Pace (Min/KM)</p>
-				<select @bind="Pace">
+				<select class="date" @bind="Pace">
 					@for (int i = 4; i <= 15; i++)
 					{
 						<option>@i</option>
