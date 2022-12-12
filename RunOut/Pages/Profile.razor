@@ -26,12 +26,23 @@
     </div>
 
     <div class="achievements-container">
+    
         <div class="title">ACHIEVEMENTS</div>
-        <img src="/Images/Achievements.png"/>
+        @if(!_display)
+        {
+            <img src="/Images/Achievements.png" />
+            <button class="startAch" onclick="@Switch"></button>
+        }
+        else
+        {
+            <img src="/Images/Achievements2.png" />
+        }
+
     </div>
 
 
     <div class='with-bg nav'>
+
         <img src="Images/Bottom Nav_Profile.png" class="bottomNav" />
         <a href="/dashboard" class="homepage"></a>
         <a href="/calendar" class="calendar"></a>
@@ -44,9 +55,11 @@
     string name;
     [CascadingParameter]
     protected Calendar_Data? Calendar_Data { get; set; }
-
+    private bool _display;
     protected override void OnInitialized()
     {
         name = Calendar_Data.currentName;
     }
+    private void Switch(MouseEventArgs e)
+    => _display = !_display;
 }

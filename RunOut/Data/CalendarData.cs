@@ -45,7 +45,7 @@ namespace RunOut.Data
             accounts.Add(new Account("user", "pass", "Chris",1));
             accounts.Add(new Account("user1", "pass", "Jessica",1));
             accounts.Add(new Account("user2", "pass", "Annie", 1));
-            accounts.Add(new Account("blank", "blank", "blank",0));
+            accounts.Add(new Account("blank", "blank", "Chris",0));
         }
 
 
@@ -53,44 +53,44 @@ namespace RunOut.Data
         {
             if (accountNum == 0)
             {
-                currentDay = 11;
-                currentMonth = 12;
+                currentDay = 1;
+                currentMonth = 1;
                 runPointer = 3;
 
                 user1Runs.Add(new CompletedRun("Jan", 1, "0", "0"));
-                user1Runs.Add(new CompletedRun("Jan", 2, "1.5km", "5:42"));
+                user1Runs.Add(new CompletedRun("Jan", 2, "1.5km", "5:30"));
                 user1Runs.Add(new CompletedRun("Jan", 3, "0", "0"));
 
                 //Week 1
                 runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 2));
                 runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 2));
-                runs.Add(new Day("Jan", "Tue", 10, "Rest", nullInterval, 0, "0", 2));
-                runs.Add(new Day("Jan", "Wed", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 1));
-                runs.Add(new Day("Jan", "Thu", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Jan", "Fri", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Jan", "Sat", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Tue", 3, "Rest", nullInterval, 0, "0", 2));
+                runs.Add(new Day("Jan", "Wed", 4, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 1));
+                runs.Add(new Day("Jan", "Thu", 5, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Fri", 6, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sat", 7, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
 
                 //Week 2
                 runs.Add(new Day("Jan", "Sun", 8, "Rest", nullInterval, 0, "0", 0));
                 runs.Add(new Day("Jan", "Mon", 9, "Run", nullInterval, 1.5, "5:30", 0));
                 runs.Add(new Day("Jan", "Tue", 10, "Rest", nullInterval, 0, "0", 0));
                 runs.Add(new Day("Jan", "Wed", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Jan", "Thu", 11, "Rest", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Jan", "Fri", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Jan", "Sat", 11, "Race Day", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Thu", 12, "Rest", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Fri", 13, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sat", 14, "Race Day", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
 
             }
             else if (accountNum == 1)
             {
-                currentDay = 10;
-                currentMonth = 12;
-                runPointer = 2;
+                currentDay = 1;
+                currentMonth = 1;
+                runPointer = 0;
 
-                user1Runs.Add(new CompletedRun("Dec", 8, "0", "0"));
-                user1Runs.Add(new CompletedRun("Dec", 9, "1.5km", "5:37"));
+                user1Runs.Add(new CompletedRun("Jan", 1, "0", "0"));
+                user1Runs.Add(new CompletedRun("Jan", 2, "1.5km", "5:37"));
                 //Week 1
-                runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 2));
-                runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 2));
+                runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 1));
+                runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 0));
             }
             else
             {
@@ -98,11 +98,26 @@ namespace RunOut.Data
                 currentMonth = 1;
                 runPointer = 1;
 
-                user1Runs.Add(new CompletedRun("Dec", 8, "0", "0"));
-                user1Runs.Add(new CompletedRun("Dec", 9, "1.5km", "5:37"));
+                user1Runs.Add(new CompletedRun("Jan", 1, "0", "0"));
+                user1Runs.Add(new CompletedRun("Jan", 2, "1.5km", "5:30"));
+                user1Runs.Add(new CompletedRun("Jan", 3, "0", "0"));
                 //Week 1
-                runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 1));
-                runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 0));
+                runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 2));
+                runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 2));
+                runs.Add(new Day("Jan", "Tue", 3, "Rest", nullInterval, 0, "0", 2));
+                runs.Add(new Day("Jan", "Wed", 4, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 1));
+                runs.Add(new Day("Jan", "Thu", 5, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Fri", 6, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sat", 7, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+
+                //Week 2
+                runs.Add(new Day("Jan", "Sun", 8, "Rest", nullInterval, 0, "0", 0));
+                runs.Add(new Day("Jan", "Mon", 9, "Run", nullInterval, 1.5, "5:30", 0));
+                runs.Add(new Day("Jan", "Tue", 10, "Rest", nullInterval, 0, "0", 0));
+                runs.Add(new Day("Jan", "Wed", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Thu", 12, "Rest", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Fri", 13, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Sat", 14, "Race Day", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
             }
         }
         public struct Interval

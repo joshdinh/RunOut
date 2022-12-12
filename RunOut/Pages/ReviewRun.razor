@@ -1,0 +1,81 @@
+﻿@layout MainLayout
+@page "/reviewRun/{Distance}/{Pace}/{Time}"
+
+<div class="content">
+    <h1>RUN <br /> COMPLETE</h1>
+    <div class="runDetails">
+        <p>Distance: @Distance km</p>
+        <p>Pace: @Pace min/km</p>
+        <p>Time: @Time</p>
+        <div class="btn">
+            <a href="/dashboard"><button id="return" 
+                >RETURN</button></a>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string ? Distance { get; set; }
+
+    [Parameter]
+    public string ? Pace { get; set; }
+
+    [Parameter]
+    public string ? Time { get; set; }
+
+    [CascadingParameter]
+    protected Calendar_Data? Calendar_Data { get; set; }
+
+    string weekday;
+    double distance;
+    string pace;
+    string runType;
+    int active;
+    Calendar_Data.Interval interval;
+
+    public void recordRun()
+    {
+        int userNum = Calendar_Data.accountNumber;
+        int day = Calendar_Data.currentDay;
+        int month = Calendar_Data.currentMonth;
+        string[] months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+        if(userNum == 0)
+        {
+            Calendar_Data.user1Runs.Add(new Calendar_Data.CompletedRun(months[month - 1], day, Distance, Pace));
+
+        }
+        else if(userNum == 1)
+        {
+            Calendar_Data.user2Runs.Add(new Calendar_Data.CompletedRun(months[month - 1], day, Distance, Pace));
+        }
+        else if(userNum == 2)
+        {
+            Calendar_Data.user3Runs.Add(new Calendar_Data.CompletedRun(months[month - 1], day, Distance, Pace));
+        }
+        int pointer = Calendar_Data.runPointer;
+        getDayInfo(pointer);
+
+        Calendar_Data.runs[pointer] = new Calendar_Data.Day(months[month-1],weekday,day,runType, interval,distance,pace, 2);
+        getDayInfo(pointer++);
+        Calendar_Data.runs[pointer] = new Calendar_Data.Day(months[month-1], weekday, day,runType, interval, distance, pace, 1);
+        Calendar_Data.currentDay++;
+        Calendar_Data.runPointer++;
+
+    }
+
+    public void getDayInfo(int pointer)
+    {
+  
+        weekday = Calendar_Data.runs[pointer].weekday;
+        distance = Calendar_Data.runs[pointer].distance;
+        pace = Calendar_Data.runs[pointer].pace;
+        runType = Calendar_Data.runs[pointer].runType;
+        interval = Calendar_Data.runs[pointer].interval;
+      
+    }
+
+
+  
+}

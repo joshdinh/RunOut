@@ -140,3 +140,14 @@
     left: 64px;
     top: 770px;
 }
+
+.startAch {
+    width: 47px;
+    height: 32px;
+    position: absolute;
+    top: 590px;
+    left: 103px;
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+}
