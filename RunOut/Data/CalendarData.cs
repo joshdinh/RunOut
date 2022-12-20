@@ -105,14 +105,14 @@ namespace RunOut.Data
                 runs.Add(new Day("Jan", "Sun", 1, "Rest", nullInterval, 0, "0", 2));
                 runs.Add(new Day("Jan", "Mon", 2, "Run", nullInterval, 1.5, "5:30", 2));
                 runs.Add(new Day("Jan", "Tue", 3, "Rest", nullInterval, 0, "0", 2));
-                runs.Add(new Day("Jan", "Wed", 4, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 1));
+                runs.Add(new Day("Jan", "Wed", 4, "LongRun", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 1));
                 runs.Add(new Day("Jan", "Thu", 5, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
-                runs.Add(new Day("Jan", "Fri", 6, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
+                runs.Add(new Day("Jan", "Fri", 6, "LongRun", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
                 runs.Add(new Day("Jan", "Sat", 7, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
 
                 //Week 2
                 runs.Add(new Day("Jan", "Sun", 8, "Rest", nullInterval, 0, "0", 0));
-                runs.Add(new Day("Jan", "Mon", 9, "Run", nullInterval, 1.5, "5:30", 0));
+                runs.Add(new Day("Jan", "Mon", 9, "LongRun", nullInterval, 1.5, "5:30", 0));
                 runs.Add(new Day("Jan", "Tue", 10, "Rest", nullInterval, 0, "0", 0));
                 runs.Add(new Day("Jan", "Wed", 11, "Interval", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
                 runs.Add(new Day("Jan", "Thu", 12, "Rest", new Interval(2, 2.5, 3, 3.5), 2.0, "5:30", 0));
