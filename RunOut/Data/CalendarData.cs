@@ -96,7 +96,7 @@ namespace RunOut.Data
             {
                 currentDay = 1;
                 currentMonth = 1;
-                runPointer = 1;
+                runPointer = 3;
 
                 user1Runs.Add(new CompletedRun("Jan", 1, "0", "0"));
                 user1Runs.Add(new CompletedRun("Jan", 2, "1.5km", "5:30"));
